@@ -1,0 +1,54 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-10-10 11:48+0000\n"
+"PO-Revision-Date: 2012-10-10 14:58+0100\n"
+"Last-Translator: SOMA Création <contact@soma-creation.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1;\n"
+
+#: \Model\Boutique.php:75
+msgid "Pas de catégories"
+msgstr "Pas de catégories"
+
+#: \Model\Boutique.php:138;207;208
+#: \Model\Boutique.php:242
+msgid "Add to Cart"
+msgstr "Ajouter au caddie"
+
+#: \webroot\js/boutiques.js:169
+msgid "test"
+msgid_plural "tests"
+msgstr[0] "Produit"
+msgstr[1] "Produits"
+
+#: \webroot\js/boutiques.js:169
+msgid "Item"
+msgstr "Produit"
+
+#: \webroot\js/boutiques.js:137
+msgid "Items"
+msgstr "Produits"
+
+#: \webroot\js/boutiques.js:137
+msgid "Return to the shop"
+msgstr "Retour à la boutique"
+
+#: \webroot\js/boutiques.js:137
+msgid "The cart is empty"
+msgstr "Le caddie est vide"
+
+#: \Model\Boutique.php:243
+msgid "Go to Cart"
+msgstr "Aller au caddie"
+
+#: \Model\Boutique.php:243
+msgid "CHECKOUT"
+msgstr "PAIEMENT"
+

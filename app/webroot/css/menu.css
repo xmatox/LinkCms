@@ -1,0 +1,29 @@
+
+/*	
+-------------------------------------------
+div#navigation = STYLES
+-------------------------------------------
+*/
+
+ul.el_block li {list-style:none;}
+ul.el_block > li { position:relative;}
+ul.el_block li a {display:block; position:relative;text-decoration:none;}
+
+
+/*ul.el_block.drop li:hover > ul, ul.el_block.drop li.hover > ul, ul.el_block.drop li > a:focus + ul { display:block;}*/
+ul.el_block.drop ul { left: 0px; position: absolute;z-index:999;display:none;}
+
+@media screen and (max-width:999px) {
+
+
+ul.el_block.drop ul, ul.el_block.drop li:hover > ul, ul.el_block.drop li.hover > ul { left:0;}
+/*ul.mhori, ul.el_block.drop li:hover > ul.mhori, ul.el_block.drop li.hover > ul.mhori { left:0;}
+ul.mvert, ul.el_block.drop li:hover > ul.mvert, ul.el_block.drop li.hover > ul.mvert { top:0;}*/
+
+ul.el_block.drop ul { padding-top:0;position:relative;}
+ul.el_block.drop ul a {width:auto;}
+}
+
+@media screen and (max-width:540px) {
+ul.el_block > li {display: block;}
+}

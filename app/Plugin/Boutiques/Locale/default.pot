@@ -1,0 +1,54 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-10-10 12:16+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: \Controller\BoutiquecatsController.php:29
+#: \Controller\BoutiqueproduitsController.php:33
+#: \Controller\BoutiquesController.php:90
+msgid "La page à bien été enregistrée"
+msgstr ""
+
+#: \Controller\BoutiquecatsController.php:32
+#: \Controller\BoutiqueproduitsController.php:36
+#: \Controller\BoutiquesController.php:93
+msgid "La page n'a pas pu être enregistrée."
+msgstr ""
+
+#: \Controller\BoutiquecatsController.php:59
+#: \Controller\BoutiqueproduitsController.php:93
+#: \Controller\BoutiquesController.php:111
+msgid "Id invalide pour la page"
+msgstr ""
+
+#: \Controller\BoutiquecatsController.php:63
+#: \Controller\BoutiqueproduitsController.php:97
+#: \Controller\BoutiquesController.php:115
+msgid "La page a bien été supprimée"
+msgstr ""
+
+#: \Controller\BoutiquecatsController.php:66
+#: \Controller\BoutiqueproduitsController.php:100
+#: \Controller\BoutiquesController.php:118
+msgid "La page n'a pas pu être supprimée."
+msgstr ""
+
+#: \Controller\BoutiquesController.php:56
+msgid "Le plugin à bien été installé"
+msgstr ""
+
+#: \Controller\BoutiquesController.php:81
+msgid "Le plugin à bien été desinstallé"
+msgstr ""
+

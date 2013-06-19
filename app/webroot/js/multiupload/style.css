@@ -1,0 +1,15 @@
+/*[fmt]0200-090A-2*/
+.dropfile{  border:3px dashed #CDCACA !important;	color:#ABA9A9 !important;	background-color:#FFF !important;	display:block !important;	float:left !important; height:151px;	width:150px;	position:relative !important;	margin-bottom:6px;	margin-right:5px;	overflow:hidden;	}
+.dropfile img{  position:absolute;	z-index:10; background-color:#FFF!important;}
+.dropfile .progress{  position:absolute;	left:0;	bottom:0;	right:0;	background-color:#498CFA;	height:0;	color:#FFF;	font-weight:bold;	text-align:center;	z-index:12;	}
+/*Hover state*/
+.dropfile.hover{  background-color:#D6D7E5;	border-color:#3B7FED !important;	}
+.dropfile.hover  img{  /*+opacity:30%;*/	filter:alpha(opacity=30);	-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=30);	-moz-opacity:0.3;	opacity:0.3;	}
+.dropfile.hover .instructions{  color:#3B7FED;	}
+.dropfile span.instructions{  position:absolute;	top:50%;	left:0;	right:0;	font-weight:bold;	color:inherit;	font-size:11.7pt;	height:40px;	margin-top:-21px;	text-align:center;	z-index:9;	}
+#trash{height:150px;width:150px;	margin-bottom:6px;	margin-right:5px;border:3px dashed #CDCACA;background-color:#f4f4f4;background-image:url("trash.png");background-position:center;background-repeat:no-repeat;float:left;clear:both;}
+#trash.hover{  background-color:#D6D7E5;	border-color:#3B7FED !important;	}
+#select{height:300px;width:300px;	margin-left:auto;	margin-right:auto;	margin-bottom:30px;	border:3px dashed #CDCACA;}
+#select img{  position:absolute;	z-index:10;	background-color:#FFF!important;height:300px;width:300px;	}
+#select span.instructions{  position:absolute;	margin-top:145px;	left:0;	right:0;	font-weight:bold;	color:#D6D7E5;	font-size:11.7pt;	height:40px;	text-align:center;	z-index:9;	}
+#select.hover{  background-color:#D6D7E5;	border-color:#3B7FED !important;	}

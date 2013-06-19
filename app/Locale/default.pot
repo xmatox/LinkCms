@@ -1,0 +1,311 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-10-08 14:09+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: \Controller\CatadminsController.php:56
+#: \Controller\RubriquesController.php:66
+msgid "La rubrique à bien été enregistrée"
+msgstr ""
+
+#: \Controller\CatadminsController.php:59
+msgid "The catadmin could not be saved. Please, try again."
+msgstr ""
+
+#: \Controller\CatadminsController.php:76
+msgid "Invalid id for catadmin"
+msgstr ""
+
+#: \Controller\CatadminsController.php:80
+msgid "Catadmin deleted"
+msgstr ""
+
+#: \Controller\CatadminsController.php:83
+msgid "Catadmin was not deleted"
+msgstr ""
+
+#: \Controller\ContenutypesController.php:21
+#: \Controller\RubriquesController.php:118
+msgid "Id invalide dour l'évènement"
+msgstr ""
+
+#: \Controller\ContenutypesController.php:25
+#: \Controller\RubriquesController.php:122
+msgid "La rubrique a bien été supprimé"
+msgstr ""
+
+#: \Controller\ContenutypesController.php:28
+#: \Controller\RubriquesController.php:124
+msgid "La rubrique n'a pas pu être supprimé."
+msgstr ""
+
+#: \Controller\LanguagesController.php:12
+#: \Controller\MenugroupesController.php:22
+msgid "Le Menu à bien été enregistré"
+msgstr ""
+
+#: \Controller\LanguagesController.php:15
+#: \Controller\MenugroupesController.php:25
+msgid "The Menu could not be saved. Please, try again."
+msgstr ""
+
+#: \Controller\LanguagesController.php:33
+#: \Controller\MenugroupesController.php:43
+msgid "Id invalide dour le menu"
+msgstr ""
+
+#: \Controller\LanguagesController.php:37
+#: \Controller\MenugroupesController.php:55
+msgid "Le menu a bien été supprimé"
+msgstr ""
+
+#: \Controller\LanguagesController.php:40
+#: \Controller\MenugroupesController.php:58
+msgid "Le menu n'a pas pu être supprimé."
+msgstr ""
+
+#: \Controller\ParametresController.php:12
+msgid "Le parametre à bien été enregistré"
+msgstr ""
+
+#: \Controller\RubriquesController.php:69
+msgid "The Rubrique could not be saved. Please, try again."
+msgstr ""
+
+#: \Controller\RubriquesController.php:127
+msgid "Cette rubrique ne peut pas être supprimé"
+msgstr ""
+
+#: \Controller\StylesController.php:17
+msgid "Le style à bien été enregistré"
+msgstr ""
+
+#: \Controller\UsersController.php:13
+msgid "Invalid username or password, try again"
+msgstr ""
+
+#: \Controller\UsersController.php:46
+msgid "The user has been saved"
+msgstr ""
+
+#: \Controller\UsersController.php:49
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: \Controller\UsersController.php:61
+msgid "Invalid id for user"
+msgstr ""
+
+#: \Controller\UsersController.php:65
+msgid "User deleted"
+msgstr ""
+
+#: \Controller\UsersController.php:68
+msgid "User was not deleted"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualiteelementsController.php:13
+msgid "L'actualité à bien été enregistrée"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualiteelementsController.php:17
+msgid "L'actualité n'a pas pu être enregistrée."
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualiteelementsController.php:41
+msgid "Id invalide pour l'actualité "
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualiteelementsController.php:47
+msgid "L'actualité a bien été supprimée"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualiteelementsController.php:50
+msgid "L'actualité n'a pas pu être supprimée."
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualitesController.php:33
+#: \Plugin\Bandcamps\Controller\BandcampsController.php:26
+#: \Plugin\Boutiques\Controller\BoutiquesController.php:56
+#: \Plugin\Evenements\Controller\EvenementsController.php:35
+#: \Plugin\Forms\Controller\FormsController.php:42
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotosController.php:46
+#: \Plugin\Googlemaps\Controller\GooglemapsController.php:31
+#: \Plugin\Htmls\Controller\HtmlsController.php:30
+#: \Plugin\Multiples\Controller\MultiplesController.php:36
+msgid "Le plugin à bien été installé"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualitesController.php:57
+#: \Plugin\Bandcamps\Controller\BandcampsController.php:49
+#: \Plugin\Boutiques\Controller\BoutiquesController.php:81
+#: \Plugin\Evenements\Controller\EvenementsController.php:59
+#: \Plugin\Forms\Controller\FormsController.php:66
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotosController.php:70
+#: \Plugin\Googlemaps\Controller\GooglemapsController.php:54
+#: \Plugin\Htmls\Controller\HtmlsController.php:60
+#: \Plugin\Multiples\Controller\MultiplesController.php:60
+msgid "Le plugin à bien été desinstallé"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualitesController.php:67
+#: \Plugin\Evenements\Controller\EvenementelementsController.php:13
+#: \Plugin\Evenements\Controller\EvenementsController.php:69
+msgid "L'évenement à bien été enregistrée"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualitesController.php:70
+#: \Plugin\Evenements\Controller\EvenementelementsController.php:17
+#: \Plugin\Evenements\Controller\EvenementsController.php:72
+msgid "L'évenement n'a pas pu être enregistrée."
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualitesController.php:87
+#: \Plugin\Boutiques\Controller\BoutiquecatsController.php:59
+#: \Plugin\Boutiques\Controller\BoutiqueproduitsController.php:93
+#: \Plugin\Boutiques\Controller\BoutiquesController.php:111
+#: \Plugin\Diaporamas\Controller\DiaporamasController.php:102
+#: \Plugin\Evenements\Controller\EvenementsController.php:89
+#: \Plugin\Forms\Controller\FormelementsController.php:48
+#: \Plugin\Forms\Controller\FormsController.php:107
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotoelementsController.php:78
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotosController.php:102
+#: \Plugin\Googlemaps\Controller\GooglemapsController.php:88
+#: \Plugin\Htmls\Controller\HtmlsController.php:106
+#: \Plugin\Multiples\Controller\MultipleelementsController.php:48
+#: \Plugin\Multiples\Controller\MultiplesController.php:159
+#: \Plugin\Pageslibres\Controller\PageslibresController.php:33
+msgid "Id invalide pour la page"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualitesController.php:93
+#: \Plugin\Boutiques\Controller\BoutiquecatsController.php:63
+#: \Plugin\Boutiques\Controller\BoutiqueproduitsController.php:97
+#: \Plugin\Boutiques\Controller\BoutiquesController.php:115
+#: \Plugin\Diaporamas\Controller\DiaporamasController.php:106
+#: \Plugin\Evenements\Controller\EvenementsController.php:95
+#: \Plugin\Forms\Controller\FormelementsController.php:52
+#: \Plugin\Forms\Controller\FormsController.php:120
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotoelementsController.php:82
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotosController.php:106
+#: \Plugin\Googlemaps\Controller\GooglemapsController.php:93
+#: \Plugin\Htmls\Controller\HtmlsController.php:111
+#: \Plugin\Multiples\Controller\MultipleelementsController.php:52
+#: \Plugin\Multiples\Controller\MultiplesController.php:172
+#: \Plugin\Pageslibres\Controller\PageslibresController.php:37
+msgid "La page a bien été supprimée"
+msgstr ""
+
+#: \Plugin\Actualites\Controller\ActualitesController.php:96
+#: \Plugin\Boutiques\Controller\BoutiquecatsController.php:66
+#: \Plugin\Boutiques\Controller\BoutiqueproduitsController.php:100
+#: \Plugin\Boutiques\Controller\BoutiquesController.php:118
+#: \Plugin\Diaporamas\Controller\DiaporamasController.php:109
+#: \Plugin\Evenements\Controller\EvenementsController.php:98
+#: \Plugin\Forms\Controller\FormelementsController.php:55
+#: \Plugin\Forms\Controller\FormsController.php:123
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotoelementsController.php:85
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotosController.php:109
+#: \Plugin\Googlemaps\Controller\GooglemapsController.php:96
+#: \Plugin\Htmls\Controller\HtmlsController.php:114
+#: \Plugin\Multiples\Controller\MultipleelementsController.php:55
+#: \Plugin\Multiples\Controller\MultiplesController.php:175
+#: \Plugin\Pageslibres\Controller\PageslibresController.php:40
+msgid "La page n'a pas pu être supprimée."
+msgstr ""
+
+#: \Plugin\Bandcamps\Controller\BandcampsController.php:60
+msgid "L'album à bien été enregistrée"
+msgstr ""
+
+#: \Plugin\Bandcamps\Controller\BandcampsController.php:63
+msgid "L'album n'a pas pu être enregistrée."
+msgstr ""
+
+#: \Plugin\Bandcamps\Controller\BandcampsController.php:80
+msgid "Id invalide pour l'album"
+msgstr ""
+
+#: \Plugin\Bandcamps\Controller\BandcampsController.php:86
+msgid "L'album a bien été supprimée"
+msgstr ""
+
+#: \Plugin\Bandcamps\Controller\BandcampsController.php:89
+msgid "L'album n'a pas pu être supprimée."
+msgstr ""
+
+#: \Plugin\Boutiques\Controller\BoutiquecatsController.php:29
+#: \Plugin\Boutiques\Controller\BoutiqueproduitsController.php:33
+#: \Plugin\Boutiques\Controller\BoutiquesController.php:90
+#: \Plugin\Diaporamas\Controller\DiaporamasController.php:68
+#: \Plugin\Forms\Controller\FormelementsController.php:36
+#: \Plugin\Forms\Controller\FormsController.php:94
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotoelementsController.php:32
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotosController.php:81
+#: \Plugin\Googlemaps\Controller\GooglemapsController.php:73
+#: \Plugin\Htmls\Controller\HtmlsController.php:80
+#: \Plugin\Multiples\Controller\MultipleelementsController.php:36
+#: \Plugin\Multiples\Controller\MultiplesController.php:73;102
+#: \Plugin\Pageslibres\Controller\PageslibresController.php:20
+msgid "La page à bien été enregistrée"
+msgstr ""
+
+#: \Plugin\Boutiques\Controller\BoutiquecatsController.php:32
+#: \Plugin\Boutiques\Controller\BoutiqueproduitsController.php:36
+#: \Plugin\Boutiques\Controller\BoutiquesController.php:93
+#: \Plugin\Diaporamas\Controller\DiaporamasController.php:71
+#: \Plugin\Forms\Controller\FormelementsController.php:39
+#: \Plugin\Forms\Controller\FormsController.php:97
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotoelementsController.php:35
+#: \Plugin\Galeriesphotos\Controller\GaleriesphotosController.php:84
+#: \Plugin\Googlemaps\Controller\GooglemapsController.php:76
+#: \Plugin\Htmls\Controller\HtmlsController.php:83
+#: \Plugin\Multiples\Controller\MultipleelementsController.php:39
+#: \Plugin\Multiples\Controller\MultiplesController.php:76;105
+#: \Plugin\Pageslibres\Controller\PageslibresController.php:23
+msgid "La page n'a pas pu être enregistrée."
+msgstr ""
+
+#: \Plugin\Evenements\Controller\EvenementelementsController.php:41
+msgid "Id invalide pour l'évenement "
+msgstr ""
+
+#: \Plugin\Evenements\Controller\EvenementelementsController.php:47
+msgid "L'évenement a bien été supprimée"
+msgstr ""
+
+#: \Plugin\Evenements\Controller\EvenementelementsController.php:50
+msgid "L'évenement n'a pas pu être supprimée."
+msgstr ""
+
+#: \Plugin\Forms\Controller\FormsController.php:169
+msgid "Veuillez remplir tous les champs obligatoires"
+msgstr ""
+
+#: \Plugin\Forms\Controller\FormsController.php:181
+msgid "Le message a bien été envoyé"
+msgstr ""
+
+#: \Plugin\Forms\Controller\FormsController.php:183;186
+msgid "Le message n'a pas pu être envoyé"
+msgstr ""
+
+#: \Plugin\Forms\Model\Form.php:95
+msgid "Envoyer"
+msgstr ""
+
+#: \View\Users\admin_edit.ctp:35
+msgid "Submit"
+msgstr ""
+

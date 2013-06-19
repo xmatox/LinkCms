@@ -1,0 +1,9 @@
+SetEnv PHP_VER 5_3
+SetEnv SESSION_USE_TRANS_SID 0
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+AddType text/css .css

@@ -1,0 +1,168 @@
+/* DRAG REZISE
+---------------------------------------------------------------------------------------------------------------------------------*/
+/*  */
+.ui-resizable-ghost { border: 1px dotted gray; }
+.ui-resizable-helper { border: 2px dotted #00F; }
+.contourselect { 
+	border: 2px dotted #00F !important; 
+	margin-color:#159159;
+}
+/*.hoveredit:after{
+	content: url(images/write.png) "<div class='zoneedit'>Modifier<div>";
+}*/
+.hoveredit:hover:after {
+  content: url(images/write.png);
+  padding: 4px 8px;
+  color: #333;
+  position: absolute;
+  right: 0; 
+  top: 0;
+  white-space: nowrap; 
+  z-index: 20px;
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px;  
+  border-radius: 5px;  
+  -moz-box-shadow: 0px 0px 4px #222;  
+  -webkit-box-shadow: 0px 0px 4px #222;  
+  box-shadow: 0px 0px 4px #222;  
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);  
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);  
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);  
+  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);  
+  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);  
+}
+.ui-resizable-s, .ui-resizable-n{
+	background: #CCA url(images/resize_v.gif) no-repeat center;
+}
+.ui-resizable-e, .ui-resizable-w{
+	background: #CCA url(images/resize_h.gif) no-repeat center;
+}
+.edithis{
+	margin: 2px;
+	position: absolute;
+	padding: 4px;
+	cursor: pointer;
+	top:10px;
+	right:10px;
+}
+.edithis_ok{
+	background: #333 !important;
+}
+#resizethis, #edithisC, #paramthisC, #delethisC, #edithisR, #paramthisR, #delethisR{
+	margin: 2px;
+	position: absolute;
+	padding: 4px;
+	cursor: pointer;
+	z-index: 9999999;
+	opacity: 0.8;
+}
+#resizethis:hover,#edithisC:hover,#paramthisC:hover,#delethisC:hover,#edithisR:hover,#paramthisR:hover,#delethisR:hover{
+	opacity: 1;
+}
+.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+.ui-sortable-placeholder * { visibility: hidden; }
+
+/* Tableau
+---------------------------------------------------------------------------------------------------------------------------------*/
+/*  */
+.tab1{
+  height:30px;
+  max-width:600px;
+  margin:0;
+  background-color:#ececec;
+  list-style: none;
+  padding-top: 4px;
+}
+.tab2{
+  height:30px;
+  max-width:600px;
+  margin:0;
+  background-color:#E0E0E0;
+  list-style: none;
+  padding-top: 4px;
+}
+.tab3{
+  background-color:#ffffff;
+  border-left: 20px solid #ececec;
+  border-top: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+.tab4{
+  background-color:#ffffff;
+  border-left: 20px solid #E0E0E0;
+  border-top: 1px solid #E0E0E0;
+  border-right: 1px solid #E0E0E0;
+}
+.tab1s{
+  max-width:600px;
+  height:25px;
+  background-color:#f7e6c2;
+  border: 1px #999999 solid;
+}
+.tab2s{
+  max-width:600px;
+  height:25px;
+  background-color:#fddc95;
+  border: 1px #999999 solid;
+}
+.tab1>.tab_li_titre, .tab2>.tab_li_titre{
+  width:165px;
+  height:20px;
+  float:left;
+  overflow: hidden;
+}
+.tab1>.tab_li_titre>a, .tab2>.tab_li_titre>a{
+  /*width:650px;*/
+  height:20px;
+  padding-top:5px;
+  padding-left:5px;
+  display:block;
+  color:#666666;
+}
+.tabtitre>.tab_li_titre{
+  /*width:650px;*/
+  height:15px;
+  padding-top:10px;
+  padding-left:5px;
+  display:block;
+  color:#FFF;
+  float:left;
+  font-weight: bold;
+}
+.tabtitre>.tab_li_int{
+  width:80px;
+  height:15px;
+  padding-top:10px;
+  display:block;
+  color:#FFF;
+  float:right;
+  font-weight: bold;
+  text-align:center;
+}
+.tab1s>.tab_li_titre, .tab2s>.tab_li_titre{
+  width:400px;
+  height:20px;
+  float:left;
+}
+.tab1s>.tab_li_titre>a, .tab2s>.tab_li_titre>a{
+  width:450px;
+  height:20px;
+  padding-top:5px;
+  padding-left:5px;
+  display:block;
+  color:#666666;
+}
+.tab_li_titre>a:hover{
+  color:#333333;
+}
+
+.tab_li_img{
+  /*border: 1px #999999 solid;*/
+  width:30px;
+  height:25px;
+  padding-top:2px;
+  float:right;
+  text-align:center;
+  margin: 0;
+}

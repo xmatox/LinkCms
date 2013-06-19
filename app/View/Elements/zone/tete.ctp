@@ -1,0 +1,1 @@
+<?php $elements = $this->requestAction('zoneelements/view/3');foreach ($elements as $element){	echo $element;}?>

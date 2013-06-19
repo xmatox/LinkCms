@@ -1,0 +1,82 @@
+.menu_cont_vide{
+	border:3px #999 dashed;
+	width:150px;
+	height:100px;
+	float:left;
+	background-image:url("add.png");
+	background-position:center 20px;
+	background-repeat:no-repeat;
+	background-color:#EAEBEB;
+	padding:10px;
+	padding-top:40px;
+	margin:5px;
+	text-align:center;
+	font-weight:bold;
+	color:#999;
+}
+.menu_cont{
+	border:3px #EAEBEB solid;
+	width:150px;
+	height:100px;
+	float:left;
+	margin:5px;
+	padding:10px;
+	padding-top:0px;
+	padding-bottom:0px;
+	position:relative;
+}
+.menuinput{
+	width:120px;
+	margin:2px;
+}
+.etats{
+	height:35px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	margin-bottom:10px;
+	border:1px #999 solid;
+	color:#000;
+	font-weight:none;
+	background-color:#fff;
+	float:left;
+}
+.etats.actif{
+	color:#fff;
+	font-weight:bold;
+	background-color:#999;
+}
+.save{
+	height:25px;
+	width:25px;
+	background-image:url("save.jpg");
+	background-position:right;
+	background-repeat:no-repeat;
+	float:right;
+}
+.trash{
+	height:25px;
+	width:25px;
+	background-image:url("trash.png");
+	background-position:right;
+	background-repeat:no-repeat;
+	float:right;
+}
+.menuform{
+	width:100%;
+	float:right;
+}
+#visumenu{
+	width:100%;
+	margin-top:20px;
+}
+#zoneparam{
+	width:310px;
+	height:480px;
+	border:1px #999 solid;
+	margin:10px;
+	padding:10px;
+	padding-top:0;
+	float:right;
+	background-color: #fff;
+}

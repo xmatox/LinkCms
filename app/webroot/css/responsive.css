@@ -1,0 +1,254 @@
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: helvetica, arial, verdana, sans-serif;
+}
+
+/* float layout */
+/* ----------- */
+
+/* block that can contain several .mod , can contain floats */
+.line {}
+
+/* module, contains floats */
+.mod { padding: 14px; }
+
+/* generaly inside .mod, can contain .item */
+.items {}
+
+/* fluid, contains floats, can be placed next to a float */
+.item { overflow: hidden; }
+
+/* table layout */
+/* ------------------ */
+.row {
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+.row > *,
+.col {
+	display: table-cell;
+	vertical-align: top;
+	padding: 14px;
+}
+
+/* blocks that needs to be placed under floats */
+.clear,
+.line,
+.row {
+	clear: both;
+}
+
+/* blocks that can contain floats */
+.clearfix:before, .clearfix:after,
+.line:before, .line:after,
+.mod:before, .mod:after {
+	content: "";
+	display: table;
+}
+.clearfix:after,
+.line:after,
+.mod:after {
+	clear: both;
+}
+
+/* alignments (blocks and inline) */
+/* ------------------------------ */
+
+/* left elements */
+.left {
+	float: left;
+	margin-right: 14px;
+}
+.mod.left,
+.col.left {
+	margin-right: 0;
+}
+
+/* right elements */
+.right {
+	float: right;
+	margin-left: 14px;
+}
+.mod.right,
+.col.right {
+	margin-left: 0;
+}
+
+.center    { margin: auto; }
+.txtleft   { text-align: left; }
+.txtright  { text-align: right; }
+.txtcenter { text-align: center; }
+
+/* orientation iOS font-size fix */
+@media (orientation: landscape) and (max-device-width: 640px) {
+	html,
+	body {
+		-webkit-text-size-adjust: 100%;
+	}
+}
+
+/* quick smartphone reset */
+@media (max-width: 640px) {
+
+
+	 /* fixer une largeur maximale  de 100 % aux éléments potentiellement problématiques */
+	 img, table, td, blockquote, code, pre, textarea, input, iframe, object, embed, video {
+	   max-width: 100%;
+	 }
+	/* conserver le ratio des images et empêcher les débordements de boîtes dûs aux border ou padding */
+	 img {
+	   height: auto; width: auto;
+	   -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	   box-sizing: border-box;
+	 }
+
+	 /* gestion des mots longs */
+	 textarea, table, td, th, code, pre, samp {
+	   word-wrap: break-word; /* passage à la ligne forcé */
+	   -webkit-hyphens: auto; /* césure propre */
+	   -moz-hyphens: auto;
+	   hyphens: auto;
+	 }
+	 code, pre, samp {
+	   white-space: pre-wrap; /* passage à la ligne spécifique pour les éléments à châsse fixe */
+	 }
+
+	 /* Passer à une seule colonne (à appliquer aux éléments multi-colonnes) */
+	 element1, element2 {
+	   float: none;
+	   width: auto;
+	 }
+
+	 /* masquer les éléments superflus */
+	 .hide_mobile {
+	   display: none !important;
+	 }
+
+	.mod,
+	.col,
+	label,
+	fieldset {
+		display: block !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		border: 0;
+		float: none !important;
+		width: auto !important;
+	}
+	.row { width: 100% !important; }
+	[class*="drop"] {
+		display: none !important;
+	}
+}
+
+/* menu mobile */
+
+
+label[for^="toggle"],
+[type="checkbox"] {
+	cursor: pointer;
+}
+label[for^="toggle"] + [type="checkbox"] { display: none; }
+
+#mobilehead {
+	display: none;
+}
+#navigation ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#navigation li { display: inline; }
+#navigation li a {
+	display: inline-block;
+	padding: .6em 1em;
+	color: #111;
+	border: 1px solid #aaa;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #fff;
+	background: #eee;
+}
+#navigation li a:hover,
+#navigation li a:active {
+	background: #ddd;
+	text-decoration: underline;
+}
+
+@media (max-width: 640px), screen and (min-device-width : 320px) and (max-device-width : 800px) {
+	/* unicode character for button */
+	[data-icon]:before { content: attr(data-icon); }
+
+	#mobilehead {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		background: #444;
+		top: 0px;
+		left: 0px;
+		z-index: 1336;
+		min-height: 5em;
+		display: block;
+	}
+	/* styling menu button */
+	label[for^="toggle"] {
+		position: absolute;
+		top: 0px; 
+		right: 0px;
+		z-index: 1337;
+		font-weight: bold;
+		line-height: 1em;
+		background-color: #444;
+		color: #fff;
+		width:100%;
+		text-align: right;
+		padding-right:10px;
+		padding-left:10px;
+		padding-bottom:10px;
+		font-size: 4.3em;
+	}
+
+	/* handling click/tap with CSS3 target */
+	#toggle-menu:checked + ul {
+		max-height: 150em !important; /* number of menu items * 6em */
+	}
+	#navigation {
+		padding-top:1em;
+	}
+	/* styling navigation items */
+	#navigation ul {
+		max-height: 0;
+		overflow: hidden;
+		-webkit-transition: max-height .4s;
+		-moz-transition: max-height .4s;
+		-o-transition: max-height .4s;
+		-ms-transition: max-height .4s;
+		transition: max-height .4s;
+	}
+	#navigation li a {
+		display: block;
+		padding: .9em .6em;
+		border: 0; border-top: 1px solid #aaa;
+		font-size: 1.3em;
+	}
+	#navigation li a:before {
+		content: "›";
+		font-size: 1.2em;
+		margin-right: .6em;
+		line-height: 1;
+	}
+	#navigation li:last-child a {
+		border-bottom: 1px solid #aaa;
+	}
+	#navigation li a:hover,
+	#navigation li a:active {
+		text-decoration: none;
+	}
+	#tete{
+		/*display:none !important;*/
+		height: auto !important;
+	}
+}

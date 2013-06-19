@@ -1,0 +1,7 @@
+﻿#resultband>li{
+	padding: 5px;
+	margin-left: 5px;
+	border: 1px #CECECE solid;
+	border-top: none;
+	cursor: pointer;
+}

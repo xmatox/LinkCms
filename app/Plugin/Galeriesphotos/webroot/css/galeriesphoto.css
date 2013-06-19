@@ -1,0 +1,54 @@
+.galerieps{
+	float:left;
+	width: 100px;
+	height: 120px;
+	margin: 10px;
+	border: 1px solid #bebebe;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+.galeriep{
+	float:left;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	border: 1px solid #bebebe;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+.galerieps a{
+	display: block;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	position: relative;
+}
+
+.galerieps img{
+	position: absolute;
+	width: auto;
+	height: auto;
+	max-width: 100px;
+	max-height: 100px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.galeriep img{
+	position: absolute;
+	width: auto;
+	height: auto;
+	max-width: 100px;
+	max-height: 100px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}

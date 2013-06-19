@@ -1,0 +1,10 @@
+
+--------------------------------------------------
+------------------ LINKCMS V1.5 ------------------
+--------------------------------------------------
+
+
+- Integration de KNACSS pour rendre le site responsif
+- Modification de la mise en cache des models
+- Modification des Editions des Rubriques
+- Ajout de la détection de l'extention du nom de domaine pour la langue par défaut
