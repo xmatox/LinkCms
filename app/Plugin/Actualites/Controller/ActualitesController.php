@@ -2,6 +2,7 @@
 class ActualitesController extends ActualitesAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Actualites";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_install(){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

@@ -1,11 +1,11 @@
 <?php	
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -83,7 +83,8 @@ echo "<div class='clear'></div>";
 	echo $this->Form->input("metatitle",array("label"=>"","size" => "50px"));
 	echo "<br/><label>Meta description : </label>";
 	echo $this->Form->input("metadescription",array("label"=>"","size" => "50px"));
-	echo $this->Form->end("Envoyer");
+	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->writeBuffer();
 	echo "</div>";
 	
 ?>

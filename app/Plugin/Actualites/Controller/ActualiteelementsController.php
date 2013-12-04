@@ -2,6 +2,7 @@
 class ActualiteelementsController extends ActualitesAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Actualites";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_list($idEvent=null,$id=null){
 		$tablename = "Actualiteelement";

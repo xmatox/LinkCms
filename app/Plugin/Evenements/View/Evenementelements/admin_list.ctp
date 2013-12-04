@@ -1,13 +1,13 @@
 <?php
 echo $this->Html->css('jquery-ui-1.8.16.custom.css');
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'controller'=>'evenements',
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	echo " > ".$theevent;
 echo "</h1>";
@@ -16,13 +16,13 @@ echo "</h1>";
 
 if(!empty($this->Form->data[$tablename]["lieu"])){ 
 echo "<div class='ajout'>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		"Nouveau",
 		array(
 			'action'=>'list',
 			$theeventid
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</div>";
 }
@@ -52,18 +52,18 @@ if(empty($thecontent)){
 			
 			echo "<li style='float:left;margin-top:5px;margin-left:5px;color:#999'><i>".($nbShow-$i)." / </i></li>";
 			echo "<li class='tab_li_titre'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$c[$tablename]['date']." - ".$c[$tablename]['lieu'],
 					array(
 						'action'=>'list',
 						$c[$tablename]["id"]
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 				$this->Html->image('/admin/suprim_h20.png', array(
 					"alt" => "Supprimer"
 				)),
@@ -72,11 +72,11 @@ if(empty($thecontent)){
 					$theeventid,
 					$c[$tablename]["id"]
 				),
-				array('escape'=>false)
+				array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 			);
 			echo "</li>";
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$this->Html->image('/admin/modif_h20.png', array(
 						"alt" => "Modifier"
 					)),
@@ -85,7 +85,7 @@ if(empty($thecontent)){
 						$theeventid,
 						$c[$tablename]["id"]
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
@@ -124,7 +124,8 @@ if(empty($thecontent)){
 		echo $this->Form->input('lien',array("label"=>"","size" => "30px"));
 		echo "<br/><label>Informations détaillées <i>(optionnel)</i> : </label><br/>";
 		echo $this->Form->textarea('infosup',array("label"=>"","class"=>"","id"=>"infosup","size" => "30px"));
-		echo $this->Form->end("Envoyer");
+		echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->writeBuffer();
 	
 	?>
 		<script type="text/javascript">

@@ -2,8 +2,7 @@
 class GooglemapsController extends GooglemapsAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Google maps";
-	//
-	
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_install(){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

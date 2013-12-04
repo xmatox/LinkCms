@@ -1,11 +1,11 @@
 <?php	
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -26,7 +26,8 @@ echo "</h1>";
 	echo "<br/><label>Nom : </label><br/>";
 	echo $this->Form->input('nom',array("label"=>"","size" => "50px"));
 	
-	echo $this->Form->end("Envoyer");
+	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->writeBuffer();
 	
 ?>
 </fieldset>

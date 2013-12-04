@@ -41,7 +41,6 @@ class AppController extends Controller {
             'logoutRedirect' => array('controller' => 'rubriques', 'action' => 'view',1, 'admin' => false)
         )
     );
-	
     function beforeFilter() {
 		// meta par defaut
 		/*$this->set('title_for_layout', "");
@@ -59,10 +58,6 @@ class AppController extends Controller {
 		if(isset($this->params['prefix']) && $this->params['prefix'] == 'admin'){
 			//$this->layout = 'admin_default';
 			$this->layout = 'admin_user';
-			//
-			$this->loadModel('Catadmin');
-			$catM = $this->Catadmin->getCat(0);
-			$this->set('catM', $catM);
 		}else if((strtolower($this->params['controller'])=="graphelements" && strtolower($this->params['action'])=="css") || (strtolower($this->params['controller'])=="styles" && strtolower($this->params['action'])=="cssgeneral")){
 			$this->layout = 'css';
 			$this->Auth->allow($this->action);

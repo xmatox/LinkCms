@@ -5,12 +5,12 @@ echo "<h1>";
 echo "</h1>";
 
 echo "<div class='ajout'>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		"Ajouter",
 		array(
 			'actoin'=>'param'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</div>";
 
@@ -32,19 +32,19 @@ if(empty($thecontent)){
 			echo "<ul class='tab2'>";
 		}
 			echo "<li class='tab_li_titre'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$c[$tablename]['nom'],
 					array(
 						'controller'=>'formelements',
 						'action'=>'list',
 						$c[$tablename]["id"]
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 				$this->Html->image('/admin/suprim_h20.png', array(
 					"alt" => "Supprimer"
 				)),
@@ -52,11 +52,11 @@ if(empty($thecontent)){
 					'action'=>'suprim', 
 					$c[$tablename]["id"]
 				),
-				array('escape'=>false)
+				array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 			);
 			echo "</li>";
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$this->Html->image('/admin/modif_h20.png', array(
 						"alt" => "Modifier"
 					)),
@@ -64,7 +64,7 @@ if(empty($thecontent)){
 						'action'=>'param', 
 						$c[$tablename]["id"]
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			

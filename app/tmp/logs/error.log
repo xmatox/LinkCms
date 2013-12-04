@@ -1,0 +1,36 @@
+2013-12-04 14:16:21 Error: [MissingTableException] Table charly_parametres for model Parametre was not found in datasource default.
+#0 H:\WORKS\cmsv6\lib\Cake\Model\Model.php(3398): Model->setSource('parametres')
+#1 H:\WORKS\cmsv6\lib\Cake\Model\Model.php(2653): Model->getDataSource()
+#2 H:\WORKS\cmsv6\app\Model\Parametre.php(7): Model->find('list', Array)
+#3 H:\WORKS\cmsv6\app\Controller\AppController.php(54): Parametre->liste()
+#4 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#5 H:\WORKS\cmsv6\lib\Cake\Event\CakeEventManager.php(246): call_user_func(Array, Object(CakeEvent))
+#6 H:\WORKS\cmsv6\lib\Cake\Controller\Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#7 H:\WORKS\cmsv6\lib\Cake\Routing\Dispatcher.php(100): Controller->startupProcess()
+#8 H:\WORKS\cmsv6\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RubriquesController), Object(CakeRequest), Object(CakeResponse))
+#9 H:\WORKS\cmsv6\app\webroot\index.php(48): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-12-04 14:16:21 Error: [MissingTableException] Table charly_parametres for model Parametre was not found in datasource default.
+#0 H:\WORKS\cmsv6\lib\Cake\Model\Model.php(3398): Model->setSource('parametres')
+#1 H:\WORKS\cmsv6\lib\Cake\Model\Model.php(2653): Model->getDataSource()
+#2 H:\WORKS\cmsv6\app\Model\Parametre.php(7): Model->find('list', Array)
+#3 H:\WORKS\cmsv6\app\Controller\AppController.php(54): Parametre->liste()
+#4 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#5 H:\WORKS\cmsv6\lib\Cake\Event\CakeEventManager.php(246): call_user_func(Array, Object(CakeEvent))
+#6 H:\WORKS\cmsv6\lib\Cake\Controller\Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#7 H:\WORKS\cmsv6\lib\Cake\Routing\Dispatcher.php(100): Controller->startupProcess()
+#8 H:\WORKS\cmsv6\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(GraphelementsController), Object(CakeRequest), Object(CakeResponse))
+#9 H:\WORKS\cmsv6\app\webroot\index.php(48): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-12-04 14:16:22 Error: [MissingTableException] Table charly_parametres for model Parametre was not found in datasource default.
+#0 H:\WORKS\cmsv6\lib\Cake\Model\Model.php(3398): Model->setSource('parametres')
+#1 H:\WORKS\cmsv6\lib\Cake\Model\Model.php(2653): Model->getDataSource()
+#2 H:\WORKS\cmsv6\app\Model\Parametre.php(7): Model->find('list', Array)
+#3 H:\WORKS\cmsv6\app\Controller\AppController.php(54): Parametre->liste()
+#4 [internal function]: AppController->beforeFilter(Object(CakeEvent))
+#5 H:\WORKS\cmsv6\lib\Cake\Event\CakeEventManager.php(246): call_user_func(Array, Object(CakeEvent))
+#6 H:\WORKS\cmsv6\lib\Cake\Controller\Controller.php(670): CakeEventManager->dispatch(Object(CakeEvent))
+#7 H:\WORKS\cmsv6\lib\Cake\Routing\Dispatcher.php(100): Controller->startupProcess()
+#8 H:\WORKS\cmsv6\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(StylesController), Object(CakeRequest), Object(CakeResponse))
+#9 H:\WORKS\cmsv6\app\webroot\index.php(48): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}

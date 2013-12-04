@@ -3,12 +3,12 @@ if(!empty($this->Form->data[$tablename]["nom"])){
 	echo $this->Html->script("/googlemaps/js/googlemap.js");
 }
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -42,7 +42,8 @@ echo "</h1>";
 			//]]>
 		</script>
 		<?php
-	echo $this->Form->end("Envoyer");
+	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->writeBuffer();
 if(!empty($this->Form->data[$tablename]["nom"])){
 	echo '<div id="map_canvas" style="width:'.$this->Form->data[$tablename]["width"].'px; height:'.$this->Form->data[$tablename]["height"].'px"></div>';
 }

@@ -4,12 +4,12 @@ echo $this->Html->css("/js/multiupload2/style.css");
 echo $this->Html->script("/htmls/js/html.js");
 echo $this->Html->css("/admin/graph.css");
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -74,7 +74,8 @@ echo "<div class='clear'></div>";
 
 
 
-	echo $this->Form->end("Envoyer");
+	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->writeBuffer();
 	echo "<br/><label style='width:500px'>Ajouter des images sur le serveur : </label>";
 	echo "";
 ?>

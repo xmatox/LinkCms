@@ -2,8 +2,7 @@
 class HtmlsController extends HtmlsAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Htmls";
-	//
-	
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_install(){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

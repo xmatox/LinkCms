@@ -2,12 +2,12 @@
 echo $this->Html->script("/galeriesphotos/js/dropfile.js");
 echo $this->Html->css("/galeriesphotos/js/style.css");
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>

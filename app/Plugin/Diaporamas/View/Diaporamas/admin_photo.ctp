@@ -2,12 +2,12 @@
 echo $this->Html->script("/js/multiupload2/dropfile.js");
 echo $this->Html->css("/js/multiupload2/style.css");
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>

@@ -1,21 +1,21 @@
 <?php	
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'controller'=>'galeriesphotos',
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	echo " > ";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$theevent,
 		array(
 			'action'=>'list',
 			$theeventid
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 
@@ -79,7 +79,8 @@ echo "<div class='clear'></div>";
 		$i++;
 	}
 	
-	echo $this->Form->end("Envoyer");
+	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->writeBuffer();
 	echo "</div>";
 	
 ?>

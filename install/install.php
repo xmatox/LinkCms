@@ -5,13 +5,12 @@ function netvar($var){
 if(isset($_POST["submit"]) || isset($_POST["next"])){
 	$erreur = "";
 	foreach($_POST as $key=>$val){
-		if(empty($val) && $key!="passwd"){
-		
+		if(empty($val) && $key!="passwd" && $key!="dosencours"){
 			$erreur = "Veuillez remplir tous les champs";
 			break;
 		}
 	}
-	if(isset($_POST["next"]) && $_POST["next"]=="1"){
+	if(isset($_POST["next"]) && $_POST["next"]=="2"){
 		$user = $_POST["user"];
 		$passwd = $_POST["passwd"];
 		$host = $_POST["host"];
@@ -31,7 +30,8 @@ if(isset($_POST["submit"]) && empty($erreur)){
 	$database = $_POST["database"];
 	$dosencours = $_POST["dosencours"];
 	$typeinstall = $_POST["typeinstall"];
-	if(substr($dosencours, 0,1)!="/") $dosencours = "/".$dosencours;
+	if($dosencours == "/") $dosencours = "";
+	else if(substr($dosencours, 0,1) != "/") $dosencours = "/".$dosencours;
 	/*$thisurl =  dirname(dirname(__FILE__));
 	$exp = explode('\\',$thisurl);
 	$nbexp = count($exp);
@@ -282,7 +282,7 @@ if(isset($_POST["submit"]) && empty($erreur)){
 		</div>
 		Installation Terminée !
 		<br/><br/>
-		Félicitation vous avez correctement installé ...
+		Félicitation vous avez correctement installé Link To The Web
 		<br/><br/>
 		Vous pouvez dès à présent vous connecter à <a href="admin666">la console d'administration.</a>
 		<br/><br/>

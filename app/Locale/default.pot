@@ -14,25 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: \Controller\CatadminsController.php:56
 #: \Controller\RubriquesController.php:66
 msgid "La rubrique à bien été enregistrée"
-msgstr ""
-
-#: \Controller\CatadminsController.php:59
-msgid "The catadmin could not be saved. Please, try again."
-msgstr ""
-
-#: \Controller\CatadminsController.php:76
-msgid "Invalid id for catadmin"
-msgstr ""
-
-#: \Controller\CatadminsController.php:80
-msgid "Catadmin deleted"
-msgstr ""
-
-#: \Controller\CatadminsController.php:83
-msgid "Catadmin was not deleted"
 msgstr ""
 
 #: \Controller\ContenutypesController.php:21

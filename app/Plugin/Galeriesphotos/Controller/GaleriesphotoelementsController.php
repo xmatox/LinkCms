@@ -2,6 +2,7 @@
 class GaleriesphotoelementsController extends GaleriesphotosAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Galeries photos";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_list($id=0){
 		$tablename = "Galeriesphotoelement";

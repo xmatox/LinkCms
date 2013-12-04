@@ -2,6 +2,7 @@
 class DiaporamasController extends DiaporamasAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Diaporamas";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_install($id=0){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

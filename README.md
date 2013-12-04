@@ -21,7 +21,7 @@ Quick Start
 Changelog
 ---------
 
-* v.1.6 
+* v.1.6.1 
 	* Updated installation
 	* Added Ajax modification for content
 * v.1.5 

@@ -5,12 +5,12 @@ echo "<h1>";
 echo "</h1>";
 if(!empty($this->Form->data[$tablename]["nom"])){ 
 echo "<div class='ajout'>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		"Nouveau",
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</div>";
 }
@@ -36,19 +36,19 @@ if(empty($thecontent)){
 		}
 			
 			echo "<li class='tab_li_titre'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$c[$tablename]['nom'],
 					array(
 						'controller'=>'actualiteelements',
 						'action'=>'list',
 						$c[$tablename]["id"]
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 				$this->Html->image('/admin/suprim_h20.png', array(
 					"alt" => "Supprimer"
 				)),
@@ -56,11 +56,11 @@ if(empty($thecontent)){
 					'action'=>'suprim', 
 					$c[$tablename]["id"]
 				),
-				array('escape'=>false)
+				array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 			);
 			echo "</li>";
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$this->Html->image('/admin/modif_h20.png', array(
 						"alt" => "Modifier"
 					)),
@@ -68,7 +68,7 @@ if(empty($thecontent)){
 						'action'=>'list', 
 						$c[$tablename]["id"]
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
@@ -99,8 +99,9 @@ if(empty($thecontent)){
 		echo "<br/><label>Nom : </label><br/>";
 		echo $this->Form->input('nom',array("label"=>"","size" => "30px"));
 		
-		echo $this->Form->end("Envoyer");
-	
+		//echo $this->Form->end("Envoyer");
+	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->writeBuffer();
 	?>
 	</fieldset>
 	

@@ -2,6 +2,7 @@
 class BandcampsController extends BandcampsAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Bandcamps";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_install(){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

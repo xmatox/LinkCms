@@ -2,6 +2,7 @@
 class PageslibresController extends PageslibresAppController {
 	// Nom du plugin
 	private $NomPlugin = "Pages libres";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_list($id=0){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

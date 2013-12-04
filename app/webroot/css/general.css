@@ -320,9 +320,9 @@ ol li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
 	background: linear-gradient( #FCFCFC, #C7C3C3);*/
 }
 #popup_edit_cont_all{
-	width:700px;
-	height: 420px;
-	margin-left:-350px;
+	width:800px;
+	height: 520px;
+	margin-left:-400px;
 	position: absolute;
 	left: 50%;
 	background-color: #FFF;
@@ -336,7 +336,7 @@ ol li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
 	margin:auto;
 	padding: 10px;
 	padding: 10px;
-	height: 400px;
+	height: 500px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 }

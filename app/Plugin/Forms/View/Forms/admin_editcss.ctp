@@ -14,23 +14,23 @@ echo $this->Html->css("menu.css");
 echo $this->Html->script("graph/editcss.js");
 echo $this->Html->css("/admin/graph.css");
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$titre,
 		array(
 			'controller'=>'forms',
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	echo " > ";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		$theform,
 		array(
 			'controller'=>'formelements',
 			'action'=>'list',
 			$theformid
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>

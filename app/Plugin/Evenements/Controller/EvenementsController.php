@@ -2,6 +2,7 @@
 class EvenementsController extends EvenementsAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Evenements";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_install(){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

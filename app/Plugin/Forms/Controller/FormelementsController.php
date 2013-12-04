@@ -2,6 +2,7 @@
 class FormelementsController extends FormsAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Forms";
+	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_list($idForm=null){
 		$tablename = "Formelement";
