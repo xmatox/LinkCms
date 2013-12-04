@@ -9,7 +9,7 @@ echo "<h1>";
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -22,6 +22,7 @@ echo "</h1>";
 	echo "Nouveau";
 } ?>
  </legend>
+ 
 <?php
 /* --- Affiche les drapeaux */
 $i=0;
@@ -72,23 +73,28 @@ echo "<div class='clear'></div>";
 	echo "<div class='clear'></div>";
 
 
-
-
-	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->submit(__("Sauvegarder"),array('id' => 'submitpage','update' => '#popup_edit_cont'));
 	echo $this->Js->writeBuffer();
+
 	echo "<br/><label style='width:500px'>Ajouter des images sur le serveur : </label>";
 	echo "";
 ?>
 
 <script type="text/javascript">
+if(isSimilarToPrefix($(location).attr('href'))){
+			returnfolder = './img/general/boutons/';
+		}else{
+			returnfolder = '../../img/general/boutons/';
+		}
 	jQuery(function($){
 		$('.dropfile').dropfile({
 			message : 'Déposez vos fichiers',
 			trash : true,
 			select : false,
 			clone : true,
-			script : '../../../../js/multiupload2/upload.php',
-			foldermin : '../../img/content'
+			script : __prefix+'/js/multiupload/upload_admin.php',
+				foldermin : '../../img/content/',
+				returnfolder : returnfolder,
 		});
 		
 		

@@ -114,26 +114,6 @@ class RubriquesController extends AppController {
 				'recursive' => -1
 		));
 		$this->set('lescats', $c);
-		//
-		$type = $this->Rubrique->Contenutype->find('list',array(
-				'fields' => 'id,nom',
-				'recursive' => -1
-		));
-		$this->set('type', $type);
-		//
-		if(isset($id) && $this->data['Contenutype']['id']!=0){
-			$plug = $this->data['Contenutype']['table'];
-			$table = substr($plug, 0, -1);
-			$this->loadModel($plug.'.'.$table);
-			$pages = $this->$table->find('list',array(
-					'fields' => 'id,nom',
-					'recursive' => -1
-			));
-		}else{
-			$pages = "";
-		}
-		
-		$this->set('pages', $pages);
 	}
 	function admin_list($id=0){
 		
@@ -165,7 +145,7 @@ class RubriquesController extends AppController {
 		}
 		//$this->redirect($this->referer());
 	}
-	function admin_ajax_getpages(){
+	/*function admin_ajax_getpages(){
 		 // Cas des requêtes AJAX
         if ( $this->request->is( 'ajax' ) ) {
 			if($this->request->query[ 'id' ]==0){
@@ -199,5 +179,5 @@ class RubriquesController extends AppController {
             // Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
             // Pour nous dans cet exemple, c'est inutile...
         }
-	}
+	}*/
 }

@@ -3,8 +3,7 @@ class RubriqueelementsController extends AppController {
 	public $helpers = array('Js');
 	var $name = 'Rubriqueelements';
 	function admin_ajax_getpages(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			if($this->request->query[ 'id' ]==0){
 				$result2="";
 			}else{
@@ -25,34 +24,24 @@ class RubriqueelementsController extends AppController {
 						'recursive' => -1
 				));
 			}
-            // On encode au format JSON et on affiche directement ce résultat (pour le récupérer dans la vue)
-            echo json_encode($result2);
+             echo json_encode($result2);
  
-            // Il faut penser à terminer le script brutalement pour court-circuiter les mécanismes
-            // de CakePHP (méthodes de la classe mère AppController par exemple)
-            exit();
-        }
-        else {
-            // Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-            // Pour nous dans cet exemple, c'est inutile...
+             exit();
         }
 	}
 	function ajax_saveform(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
-		
-			$contenutype_id = $this->request->data['contenutype'];
+		if ( $this->request->is( 'ajax' ) ) {
 			$contenupage_id = $this->request->data['contenupage'];
+			$contenutype_id = $this->request->data['contenutype'];
 			$zone = $this->request->data['zone'];
 			$rubrique_id = substr($zone, 2);
-			/*$graph = $this->Rubriqueelement->Graphelement->find('first',
-				array( 
-					'conditions' => array( 'Graphelement.nom' => $zone ),
-					'fields' => array( 'Graphelement.id' )
-				)
-			);
-			$graphelement_id = $graph["Graphelement"]["id"];*/
-			
+			// detection nouveau contenu
+			if($contenupage_id=="new"){
+				$contenupage_id = $this->Rubriqueelement->savenew($contenutype_id,$rubrique_id);
+				$statut = "new";
+			}else{
+				$statut = "ok";
+			}
 			$data = array('graphelement_id' => 0, 'contenupage_id' => $contenupage_id, 'contenutype_id' => $contenutype_id, 'rubrique_id' => $rubrique_id);
 			//
 			$this->Rubriqueelement->save($data);
@@ -64,31 +53,28 @@ class RubriqueelementsController extends AppController {
 			//
 			$data3 = array('graphelement_id' => $lidg);
 			$this->Rubriqueelement->save($data3);
-			echo json_encode("ok");
+			if($statut=="new"){
+				
+				echo json_encode(array("e_statut"=>$statut,"e_value"=>$this->Rubriqueelement->id));
+			}else{
+				echo json_encode(array("e_statut"=>$statut,"e_value"=>""));
+			}
 			exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
-		}
+		} 
 	}
 	function ajax_recupzone(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			$zone = $this->request->data['zone'];
 			$rubrique_id = substr($zone, 2);
 			echo json_encode($this->Rubriqueelement->view($rubrique_id));
 			
             exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
 		}
 	}
 	function ajax_setposition(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			$id = $this->request->data['id'];
 			$position = $this->request->data['position'];
 			$data = array('ordre' => $position);
@@ -97,14 +83,10 @@ class RubriqueelementsController extends AppController {
 			if($this->Rubriqueelement->save($data)) echo json_encode($id);
 			 exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
-		}
+		} 
 	}
 	function ajax_deleteform(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		 if ( $this->request->is( 'ajax' ) ) {
 			$id = $this->request->data['id'];
 			$groupe = $this->Rubriqueelement->Graphelement->find('first',array(
 				'conditions' => array( 'nom' => "re_".$id),
@@ -116,14 +98,10 @@ class RubriqueelementsController extends AppController {
 			if($this->Rubriqueelement->delete($id)) echo json_encode($id);
 			 exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
-		}
+		} 
 	}
 	function ajax_actueditzone(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			$zone = $this->request->data['zone'];
 			$id = $this->request->data['id'];
 			$result = $this->Rubriqueelement->find('first',
@@ -140,8 +118,7 @@ class RubriqueelementsController extends AppController {
             echo json_encode($aresult);
             exit();
         
-		} else {
-		}
+		} 
 	}
 	function ajax_editcont() {
 	    $zone = $this->request->data['zone'];
@@ -151,6 +128,17 @@ class RubriqueelementsController extends AppController {
 			array( 
 				'conditions' => array( 'Rubriqueelement.id' => $id),
 				'contain' => array( 'Contenutype.table')
+			)
+		);
+		array_push($result, $type);
+		echo json_encode($result);
+	    exit();
+	}
+	function ajax_recuptablecont() {
+	    $type = $this->request->data['typee'];
+		$result = $this->Rubriqueelement->Contenutype->find('first',
+			array( 
+				'conditions' => array( 'Contenutype.id' => $type)
 			)
 		);
 		array_push($result, $type);

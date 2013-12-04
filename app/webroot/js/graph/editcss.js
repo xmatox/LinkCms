@@ -61,9 +61,9 @@ function actuvisu(zone){
 						if(datacle.borderradius) $("#"+zone).css("-webkit-border-radius",datacle.borderradius);
 						if(datacle.borderradius){ var aborderradius=datacle.borderradius.split('px '); $("#zp_borderradius1").val(aborderradius[0]); $("#zp_borderradius2").val(aborderradius[1]); $("#zp_borderradius3").val(aborderradius[2]); $("#zp_borderradius4").val(aborderradius[3]); }else{ $("#zp_borderradius1").val(0); $("#zp_borderradius2").val(0); $("#zp_borderradius3").val(0); $("#zp_borderradius4").val(0); }
 						if(datacle.margin) $("#"+zone).css("margin",datacle.margin);
-						if(datacle.margin){ var amargin=datacle.margin.split('px '); $("#zp_margin1").val(amargin[0]); $("#zp_margin2").val(amargin[1]); $("#zp_margin3").val(amargin[2]); $("#zp_margin4").val(amargin[3]); }else{ $("#zp_margin1").val(0); $("#zp_margin2").val(0); $("#zp_margin3").val(0); $("#zp_margin4").val(0); }
+						if(datacle.margin){ var amargin=datacle.margin.split(' '); $("#zp_margin1").val(amargin[0]); $("#zp_margin2").val(amargin[1]); $("#zp_margin3").val(amargin[2]); $("#zp_margin4").val(amargin[3]); }else{ $("#zp_margin1").val(0); $("#zp_margin2").val(0); $("#zp_margin3").val(0); $("#zp_margin4").val(0); }
 						if(datacle.padding) $("#"+zone).css("padding",datacle.padding);
-						if(datacle.padding){ var apadding=datacle.padding.split('px '); $("#zp_padding1").val(apadding[0]); $("#zp_padding2").val(apadding[1]); $("#zp_padding3").val(apadding[2]); $("#zp_padding4").val(apadding[3]); }else{ $("#zp_padding1").val(0); $("#zp_padding2").val(0); $("#zp_padding3").val(0); $("#zp_padding4").val(0); }
+						if(datacle.padding){ var apadding=datacle.padding.split(' '); $("#zp_padding1").val(apadding[0]); $("#zp_padding2").val(apadding[1]); $("#zp_padding3").val(apadding[2]); $("#zp_padding4").val(apadding[3]); }else{ $("#zp_padding1").val(0); $("#zp_padding2").val(0); $("#zp_padding3").val(0); $("#zp_padding4").val(0); }
 						if(datacle.float) $("#"+zone).css("float",datacle.float); else $("#"+zone).css("float","none");
 						if(datacle.float) $("#zp_float").val(datacle.float); else $("#zp_float").val("");
 						$("#"+zone).css("background-color",datacle.fondcolor);
@@ -122,9 +122,44 @@ function saveform(){
 	if(!$("#zp_borderradius2").val()) $("#zp_borderradius2").val(0);
 	if(!$("#zp_borderradius3").val()) $("#zp_borderradius3").val(0);
 	if(!$("#zp_borderradius4").val()) $("#zp_borderradius4").val(0);
-	var margin = $("#zp_margin1").val()+"px "+$("#zp_margin2").val()+"px "+$("#zp_margin3").val()+"px "+$("#zp_margin4").val()+"px ";
+	if($("#zpe_margin1").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_margin1").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_margin1").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_margin1").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin1 = $("#zpe_margin1").val()+" ";
+	else
+		var margin1 = $("#zpe_margin1").val()+"px ";
+	if($("#zpe_margin2").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_margin2").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_margin2").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_margin2").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin2 = $("#zpe_margin2").val()+" ";
+	else
+		var margin2 = $("#zpe_margin2").val()+"px ";
+	if($("#zpe_margin3").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_margin3").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_margin3").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_margin3").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin3 = $("#zpe_margin3").val()+" ";
+	else
+		var margin3 = $("#zpe_margin3").val()+"px ";
+	if($("#zpe_margin4").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_margin4").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_margin4").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_margin4").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin4 = $("#zpe_margin4").val()+" ";
+	else
+		var margin4 = $("#zpe_margin4").val()+"px ";
+	var margin = margin1+margin2+margin3+margin4;
+	if($("#zpe_padding1").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_padding1").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_padding1").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_padding1").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding1 = $("#zpe_padding1").val()+" ";
+	else
+		var padding1 = $("#zpe_padding1").val()+"px ";
+	if($("#zpe_padding2").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_padding2").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_padding2").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_padding2").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding2 = $("#zpe_padding2").val()+" ";
+	else
+		var padding2 = $("#zpe_padding2").val()+"px ";
+	if($("#zpe_padding3").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_padding3").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_padding3").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_padding3").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding3 = $("#zpe_padding3").val()+" ";
+	else
+		var padding3 = $("#zpe_padding3").val()+"px ";
+	if($("#zpe_padding4").val().toLowerCase().indexOf("px") >= 0 || $("#zpe_padding4").val().toLowerCase().indexOf("em") >= 0 || $("#zpe_padding4").val().toLowerCase().indexOf("%") >= 0 || $("#zpe_padding4").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding4 = $("#zpe_padding4").val()+" ";
+	else
+		var padding4 = $("#zpe_padding4").val()+"px ";
+	var padding = padding1+padding2+padding3+padding4;
+	
+	//var margin = $("#zp_margin1").val()+"px "+$("#zp_margin2").val()+"px "+$("#zp_margin3").val()+"px "+$("#zp_margin4").val()+"px ";
 	var borderradius = $("#zp_borderradius1").val()+"px "+$("#zp_borderradius2").val()+"px "+$("#zp_borderradius3").val()+"px "+$("#zp_borderradius4").val()+"px ";
-	var padding = $("#zp_padding1").val()+"px "+$("#zp_padding2").val()+"px "+$("#zp_padding3").val()+"px "+$("#zp_padding4").val()+"px ";
+	//var padding = $("#zp_padding1").val()+"px "+$("#zp_padding2").val()+"px "+$("#zp_padding3").val()+"px "+$("#zp_padding4").val()+"px ";
 	var float = $("#zp_float").val();
 	var fondcolor = $("#zp_fondcolor").val();
 	var textsize = $("#zp_textsize").val();

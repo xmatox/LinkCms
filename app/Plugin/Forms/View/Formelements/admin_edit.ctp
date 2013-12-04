@@ -6,7 +6,7 @@ echo "<h1>";
 			'controller'=>'forms',
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	echo " > ";
 	echo $this->Js->link(
@@ -15,7 +15,7 @@ echo "<h1>";
 			'action'=>'list',
 			$theformid
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 
@@ -108,8 +108,8 @@ echo "<div class='clear'></div>";
 	echo $this->Form->select('alignement',$aalignement);
 	echo "<br/><br/><label>Largeur : </label><br/>";
 	echo $this->Form->input("width",array("label"=>"","size" => "50px","default" => 50));
+	//echo $this->Form->end("Envoyer");
 	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
 	echo $this->Js->writeBuffer();
-	
 ?>
 </fieldset>

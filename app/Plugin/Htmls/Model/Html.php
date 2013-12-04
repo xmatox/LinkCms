@@ -36,5 +36,13 @@ class Html extends AppModel{
 		$output .= "<div class='clear'></div></div>";
 		return $output;
 	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Titre",'contenuhtml' => "Contenu");
+		$this->save($dat);
+		$id = $this->id;
+		return $id;
+	}
 }
 ?>

@@ -58,7 +58,7 @@ class DiaporamasController extends DiaporamasAppController {
 		
 	}
 	function admin_edit($id=null){
-		$this->redirect(array('action' => 'photo',$id));
+		$this->redirect(array('action' => 'param',$id));
 	}
 	function admin_param($id=null){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);
@@ -67,7 +67,6 @@ class DiaporamasController extends DiaporamasAppController {
 			$this->$tablename->locale = Configure::read('Config.languages');
 			if ($this->$tablename->save($this->data)) {
 				$this->Session->setFlash(__('La page à bien été enregistrée', true));
-				$this->redirect(array('action' => 'list'));
 			} else {
 				$this->Session->setFlash(__('La page n\'a pas pu être enregistrée.', true));
 			}

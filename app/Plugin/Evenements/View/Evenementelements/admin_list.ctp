@@ -129,9 +129,13 @@ if(empty($thecontent)){
 	
 	?>
 		<script type="text/javascript">
-			//<![CDATA[
-				CKEDITOR.replace( "infosup");
-			//]]>
+		if(CKEDITOR.instances["infosup"]) {
+			
+			CKEDITOR.remove(CKEDITOR.instances["infosup"]);
+		}
+
+		CKEDITOR.replace( "infosup");
+
 		</script>
 	</fieldset>
 	

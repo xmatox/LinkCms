@@ -18,7 +18,7 @@ echo $this->Js->link(
 			'action'=>'editcss',
 			$theformid
 		),
-		array('escape'=>false,'id'=>"zp_css",'style'=>"display: block;float:none")
+		array('escape'=>false,'id'=>"zp_css",'style'=>"display: block;float:none",'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "<div class='ajout'>";
 	echo $this->Js->link(

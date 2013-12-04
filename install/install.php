@@ -56,7 +56,7 @@ if(isset($_POST["submit"]) && empty($erreur)){
 				$sql = file_get_contents("init_entreprise.sql",FILE_USE_INCLUDE_PATH);
 			else
 				$sql = file_get_contents("init_standard.sql",FILE_USE_INCLUDE_PATH);
-			//include("init.php");
+			//
 			$sql = str_replace("__PREFIX", $prefix, $sql);
 			$requetes = explode(' ;', $sql);
 			$nbrequetes = count($requetes);

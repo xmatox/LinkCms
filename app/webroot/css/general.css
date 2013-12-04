@@ -12,7 +12,8 @@ body {
 	margin: 0;
 }
 p{
-	margin: 1em 0;
+	/*margin: 1em 0;*/
+	margin: 0 0 1em 0;
 }
 a {
 	color: #003d4c;
@@ -50,9 +51,6 @@ h4 {
 }
 ul, li {
 	margin-left: 20px;
-}
-p {
-	/*margin: 0 0 1em 0;*/
 }
 input[type=text],input[type=password],input[type=number],textarea{
 	border: 1px #CECECE solid;
@@ -122,7 +120,14 @@ label {
 .footer{
 	width:100%;
 }
-
+.footer_credit{
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+	z-index: 2;
+	color: #fff;
+	opacity: 0.5;
+}
 /* -- */
 .success,
 .message,
@@ -320,13 +325,13 @@ ol li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
 	background: linear-gradient( #FCFCFC, #C7C3C3);*/
 }
 #popup_edit_cont_all{
-	width:800px;
-	height: 520px;
-	margin-left:-400px;
+	width:50%;
+	height: 100%;
 	position: absolute;
-	left: 50%;
+	left: 0px;
+	top: 0px;
 	background-color: #FFF;
-	border: 2px solid #999;
+	border-right: 4px solid #E6E6E6;
 	-moz-border-radius: 5px 0px 0px 5px;
 	-webkit-border-radius: 5px 0px 0px 5px;
 	overflow:hidden;
@@ -334,23 +339,17 @@ ol li a:focus, .prevBtn a:focus, .nextBtn a:focus{outline:none;}
 }
 #popup_edit_cont{
 	margin:auto;
-	padding: 10px;
-	padding: 10px;
-	height: 500px;
-	overflow-x: hidden;
+	padding-right: 20px;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
 	overflow-y: scroll;
 }
 #popup_edit_close{
-	text-align: right;
-	height: 20px;
-	width: 20%;
-	float: left;
-	background-color: #C7C3C3;
-	background: -webkit-linear-gradient( #FCFCFC, #C7C3C3);
-	background: -moz-linear-gradient( #FCFCFC, #C7C3C3);
-	background: -ms-linear-gradient( #FCFCFC, #C7C3C3);
-	background: -o-linear-gradient( #FCFCFC, #C7C3C3);
-	background: linear-gradient( #FCFCFC, #C7C3C3);
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	padding: 4px;
 }
 #popup_edit_move{
 	height: 20px;

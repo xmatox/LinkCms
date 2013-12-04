@@ -44,7 +44,7 @@ if($this->Session->read('Auth.User.id')){
 		<div id="menu">
 		<?php
 			//echo $this->element("menu",array("cache"=>"1 day"));
-			echo $this->element("/admin/menu");
+			//echo $this->element("/admin/menu");
 		?>
 		</div>
 	</div>

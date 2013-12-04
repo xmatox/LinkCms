@@ -41,5 +41,23 @@ class Rubriqueelement extends AppModel{
 
 		return $output;
 	}
+	function savenew($contenutype_id=null){
+		$elements = $this->Contenutype->find('first',
+			array( 
+				'conditions' => array('Contenutype.id' => $contenutype_id),
+				'fields' => array('Contenutype.table')
+			)
+		);
+		$plug = $elements['Contenutype']['table'];
+		$table = substr($plug, 0, -1);
+		if ($elements['Contenutype']['table']!="Menugroupes" && $elements['Contenutype']['table']!="Languages") {
+			$contenu_id = ClassRegistry::init($plug.'.'.$table)->savenew();
+		}else if($elements['Contenutype']['table']=="Languages"){
+			$contenu_id = ClassRegistry::init($table)->savenew();
+		}else{
+			$contenu_id = ClassRegistry::init($table)->savenew();
+		}
+		return $contenu_id;
+	}
 }
 ?>

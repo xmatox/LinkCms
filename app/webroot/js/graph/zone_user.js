@@ -32,7 +32,10 @@ function recupform_el(zone){
 function saveform_el(zone){
 	set_loader(true);
 	var elementtype = $("#elementtype").val();
-	var contenupage = $("#contenupage").val();
+	if($("#contenupagec").val())
+		var contenupage = $("#contenupage").val();
+	else
+		var contenupage = "new";
 	
 	var formUrl = __prefix+"/zoneelements/ajax_saveform/";
 	$.ajax({
@@ -43,8 +46,10 @@ function saveform_el(zone){
 		data: { elementtype: elementtype,contenupage: contenupage,zone: zone },
 		success: function(data) {
 			set_loader(false);
-			if(data){
+			if(data.e_statut=="ok"){
 				recupform_el(zone);
+			}else if(data.e_statut=="new"){
+				edit_cont("ze_"+data.e_value);
 			}
 			
 		

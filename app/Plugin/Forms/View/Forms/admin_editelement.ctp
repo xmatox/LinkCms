@@ -5,7 +5,7 @@ echo "<h1>";
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	echo " > ";
 	echo $this->Js->link(
@@ -14,7 +14,7 @@ echo "<h1>";
 			'action'=>'listelement',
 			$theformid
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 
@@ -64,7 +64,7 @@ echo "<div class='clear'></div>";
 		echo "<br/><label>Nom : </label>";
 		foreach(Configure::read('Config.languages') as $lang2){
 			if($lang!=$lang2){
-				echo $this->Js->link($this->Html->image('lang/'.$lang2.'.png', array('alt'=>$lang2)),'#',array('escape'=>false,'class'=>'copylang','onclick'=>"copytext('inputnom".$lang."','inputnom".$lang2."');return false;"));
+				echo $this->Html->link($this->Html->image('lang/'.$lang2.'.png', array('alt'=>$lang2)),'#',array('escape'=>false,'class'=>'copylang','onclick'=>"copytext('inputnom".$lang."','inputnom".$lang2."');return false;"));
 				//echo "<a class='lang2' style='display:inline' href='#' onClick=''>".$this->Html->image('lang/'.$lang2.'.png', array('alt'=>$lang2))."</a>";
 			}
 		}
@@ -74,7 +74,7 @@ echo "<div class='clear'></div>";
 		echo "<br/><label>Contenu : </label>";
 		foreach(Configure::read('Config.languages') as $lang2){
 			if($lang!=$lang2){
-				echo $this->Js->link($this->Html->image('lang/'.$lang2.'.png', array('alt'=>$lang2)),'#',array('escape'=>false,'class'=>'copylang','onclick'=>"copytext('inputcontent".$lang."','inputcontent".$lang2."');return false;"));
+				echo $this->Html->link($this->Html->image('lang/'.$lang2.'.png', array('alt'=>$lang2)),'#',array('escape'=>false,'class'=>'copylang','onclick'=>"copytext('inputcontent".$lang."','inputcontent".$lang2."');return false;"));
 				//echo "<a class='lang2' style='display:inline' href='#' onClick=''>".$this->Html->image('lang/'.$lang2.'.png', array('alt'=>$lang2))."</a>";
 			}
 		}
@@ -84,6 +84,7 @@ echo "<div class='clear'></div>";
 		echo "</div>";
 		$i++;
 	}
+	//echo $this->Form->end("Envoyer");
 	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
 	echo $this->Js->writeBuffer();
 	

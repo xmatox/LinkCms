@@ -6,6 +6,7 @@
 .contourselect { 
 	border: 2px dotted #00F !important; 
 	margin-color:#159159;
+  overflow: hidden;
 }
 /*.hoveredit:after{
 	content: url(images/write.png) "<div class='zoneedit'>Modifier<div>";
@@ -41,10 +42,14 @@
 .edithis{
 	margin: 2px;
 	position: absolute;
+  z-index: 9999999;
 	padding: 4px;
 	cursor: pointer;
 	top:10px;
 	right:10px;
+}
+.edithis>a{
+  margin: auto;
 }
 .edithis_ok{
 	background: #333 !important;
@@ -68,7 +73,6 @@
 /*  */
 .tab1{
   height:30px;
-  max-width:600px;
   margin:0;
   background-color:#ececec;
   list-style: none;
@@ -76,7 +80,6 @@
 }
 .tab2{
   height:30px;
-  max-width:600px;
   margin:0;
   background-color:#E0E0E0;
   list-style: none;

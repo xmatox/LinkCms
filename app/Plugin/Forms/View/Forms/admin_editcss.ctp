@@ -20,7 +20,7 @@ echo "<h1>";
 			'controller'=>'forms',
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	echo " > ";
 	echo $this->Js->link(
@@ -30,7 +30,7 @@ echo "<h1>";
 			'action'=>'list',
 			$theformid
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -98,7 +98,7 @@ echo "</h1>";
 			clone : false,
 			rename : true,
 			inputmaj : $('#zp_fondimg'),
-			script : '../../../../js/multiupload/upload.php',
+			script : __prefix+'/js/multiupload/upload.php',
 			foldermin : '0',
 			widthmin : '0',
 			heightmin : '0'

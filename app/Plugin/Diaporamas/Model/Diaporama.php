@@ -100,5 +100,13 @@ class Diaporama extends AppModel{
 		$output .= "</div>";
 		return $output;
 	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Titre", 'width' => 600, 'height' => 400, 'contenu' => "");
+		$this->save($dat);
+		$id = $this->id;
+		return $id;
+	}
 }
 ?>

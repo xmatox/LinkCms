@@ -1,6 +1,5 @@
 <?php
 class Rubrique extends AppModel{
-	var $belongsTo= array('Contenutype');
 	var $hasMany= array('Rubriqueelement');
 	public $actsAs = array(
 		'Translate' => array(
@@ -20,7 +19,6 @@ class Rubrique extends AppModel{
 			"conditions" => "Rubrique.parent=$id && Rubrique.id<>0",
 			"fields" => "Rubrique.id,Rubrique.nom,Rubrique.parent,Rubrique.contenutype_id",
 			"recursive" => -1
-			//"contain" => "Contenutype"
 		));
 		
 		if (count($allrub)>0) {
@@ -33,7 +31,6 @@ class Rubrique extends AppModel{
 					"recursive" => -1
 				));
 				if (count($sousrub)>0) {
-					//$asousrub = $this->getList($c["Rubrique"]["id"]);
 					array_push($arub, array("rub"=>$c,"sousrub"=>$sousrub));
 				}else{
 					array_push($arub, array("rub"=>$c));
@@ -42,12 +39,6 @@ class Rubrique extends AppModel{
 			}
 		return $arub;
 		}
-		
-		/*$ct = $this->find('first',array(
-				"conditions" => "Rubrique.id=$id",
-				"fields" => "id,nom,parent"
-			));
-		$this->set('lacat', $ct);*/
 	}
 }
 ?>

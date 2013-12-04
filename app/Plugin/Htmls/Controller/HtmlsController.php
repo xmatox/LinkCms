@@ -2,6 +2,7 @@
 class HtmlsController extends HtmlsAppController {
 	// Nom du plugin - Sans espace ni caratères spéciaux
 	private $NomPlugin = "Htmls";
+	//
 	public $helpers = array('Js');
 	// ADMINISTRATION
 	function admin_install(){
@@ -27,14 +28,14 @@ class HtmlsController extends HtmlsAppController {
 		$data = array('nom' => $this->NomPlugin, 'table' => $tablenames);
 		$this->Elementtype->save($data);
 		$this->Session->setFlash(__('Le plugin à bien été installé', true));
+		$this->redirect(array('controller' => 'contenutypes','action' => 'list','plugin' => false));
 		// création du dossier
-		$this->redirect($this->referer());
 		$path = "/img/content/";
 		$dir = new Folder($path);
 		if(!$dir->find()){
 			$dir->create($path);
 		}
-		$this->redirect(array('controller' => 'contenutypes','action' => 'list','plugin' => false));
+		
 	}
 	function admin_delete(){
 		$tablename = $this->Formate->getTableName($this->NomPlugin);

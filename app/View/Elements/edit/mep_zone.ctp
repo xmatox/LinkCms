@@ -6,8 +6,8 @@
 		Largeur : <br/><input type="text" id="zp_width" title="Accept : px(pixel), %(pourcent) or em(relative)" /><br/><br/>
 		Hauteur : <br/><input type="text" id="zp_height" title="Accept : px(pixel), %(pourcent) or em(relative)" /><br/><br/>
 		Couleur de fond : <br/><input type="text" id="zp_fondcolor"  value="#00ff00" title="Code Couleur Hexadécimal" /><br/><br/>
-		Espacement exterieur : <br/><input type="text" id="zp_margin4" title="A Gauche" style="width:25px" /> - <input type="text" id="zp_margin1" title="En Haut" style="width:25px" /> - <input type="text" id="zp_margin3" title="En Bas" style="width:25px" /> - <input type="text" id="zp_margin2" title="A Droite" style="width:25px" /><br/><br/>
-		Espacement interrieur : <br/><input type="text" id="zp_padding4" title="A Gauche" style="width:25px" /> - <input type="text" id="zp_padding1" title="En Haut" style="width:25px" /> - <input type="text" id="zp_padding3" title="En Bas" style="width:25px" /> - <input type="text" id="zp_padding2" title="A Droite" style="width:25px" /><br/><br/>
+		Espacement exterieur : <br/><input type="text" id="zp_margin4" title="A Gauche" style="width:40px" /> - <input type="text" id="zp_margin1" title="En Haut" style="width:40px" /> - <input type="text" id="zp_margin3" title="En Bas" style="width:40px" /> - <input type="text" id="zp_margin2" title="A Droite" style="width:40px" /><br/><br/>
+		Espacement interrieur : <br/><input type="text" id="zp_padding4" title="A Gauche" style="width:40px" /> - <input type="text" id="zp_padding1" title="En Haut" style="width:40px" /> - <input type="text" id="zp_padding3" title="En Bas" style="width:40px" /> - <input type="text" id="zp_padding2" title="A Droite" style="width:40px" /><br/><br/>
 		Position de l'image de fond : <br/>
 		<select id="zp_fondimgpos">
 		<option value=""></option>

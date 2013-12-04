@@ -8,9 +8,9 @@ echo "<div class='ajout'>";
 	echo $this->Js->link(
 		"Ajouter",
 		array(
-			'actoin'=>'param'
+			'action'=>'param'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</div>";
 

@@ -8,6 +8,21 @@ class Pageslibre extends AppModel{
 		),
 		'Autocache'
 	);
+	//
+	var $validate = array(
+		'nom' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => "le nom est obligatoire"
+		),
+		'contenu' => array(
+			'rule' => 'notEmpty',
+			'required' => true,
+			'allowEmpty' => false,
+			'message' => "le contenu est obligatoire"
+		)
+	);
 	// fonction d'affichage
 	// return du html à afficher
 	function view($id=null,$idelement=null,$prefix=null){
@@ -25,6 +40,14 @@ class Pageslibre extends AppModel{
 		$output .= $pages["Pageslibre"]["contenu"];
 		$output .= "<div class='clear'></div></div>";
 		return $output;
+	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Titre", 'contenu' => "Contenu ...");
+		$this->save($dat);
+		$id = $this->id;
+		return $id;
 	}
 }
 ?>

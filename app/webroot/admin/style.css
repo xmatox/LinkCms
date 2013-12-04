@@ -584,4 +584,13 @@ label{
 	font-style: italic;
 	margin-right: 2px;
 }
-
+.addPhoto>a{
+	display: block;
+	width: 224px;
+	height: 100px;
+	background-image:url("addPhoto.jpg");
+	background-repeat:no-repeat;
+	position: absolute;
+	top: 0px;
+	right: 100px;
+}

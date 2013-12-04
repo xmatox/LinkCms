@@ -26,6 +26,7 @@ $heightmin2 = !empty($h['x-file-heightmin2']) ? $h['x-file-heightmin2'] : "0";
 $foldermin3 = !empty($h['x-file-foldermin3']) ? $h['x-file-foldermin3'] : "0";
 $widthmin3 = !empty($h['x-file-widthmin3']) ? $h['x-file-widthmin3'] : "0";
 $heightmin3 = !empty($h['x-file-heightmin3']) ? $h['x-file-heightmin3'] : "0";
+$returnfolder = !empty($h['x-file-returnfolder']) ? $h['x-file-returnfolder'] : "0";
 	
 $folderTmp = "../../img/graph/";
 
@@ -124,13 +125,14 @@ if(isset($h['x-file-select'])){
 		$nom = $thename;
 		
 		$o->name = $nom;
-		
 		if($foldermin2!="0" && $foldermin2!="0/"){
-		$o->content = '<img src="../'.$foldermin2.$nom.'" alt="'.$nom.'"/>';
+			$o->content = '<img src="'.$foldermin2.$nom.'" alt="'.$nom.'"/>';
+		}else if($returnfolder!="0" && $returnfolder!="0/"){
+			$o->content = '<img src="'.$returnfolder.$nom.'" alt="'.$nom.'"/>';
 		}else if($foldermin!="0" && $foldermin!="0/"){
-		$o->content = '<img src="../'.$foldermin.$nom.'" alt="'.$nom.'"/>';
+			$o->content = '<img src="'.$foldermin.$nom.'" alt="'.$nom.'"/>';
 		}else{
-		$o->content = '<img src="../'.$folderTmp.$nom.'" alt="'.$nom.'"/>';
+			$o->content = '<img src="'.$folderTmp.$nom.'" alt="'.$nom.'"/>';
 		}
 	}
 }

@@ -35,5 +35,16 @@ class Actualite extends AppModel{
 		$output .= "</div>";
 		return $output;
 	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Actualité");
+		$this->save($dat);
+		$id = $this->id;
+		$this->Actualiteelement->create();
+		$dat = array('date' => date("Y-m-d"),'titre' => "Titre News",'contenu' => "Texte de votre news ...",'actualite_id' => $id);
+		$this->Actualiteelement->save($dat);
+		return $id;
+	}
 }
 ?>

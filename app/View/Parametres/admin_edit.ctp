@@ -4,13 +4,13 @@ echo $this->Html->script("/js/multiupload/dropfile.js");
 echo $this->Html->css("/js/multiupload/style.css");
 
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		"Parametres",
 		array(
 			'controller'=>'parametres', 
 			'action'=>'edit'
 		),
-		array('escape'=>false)
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>

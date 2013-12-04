@@ -174,8 +174,8 @@ function recupform(zone){
 					$("#dropfile_content > div > img").remove();
 				$('#dropfile').dropfile({foldermin : data['Graphelement'].fondimgfolder});
 				//
-				if(data["Graphelement"].margin){ var amargin=data["Graphelement"].margin.split('px '); $("#zp_margin1").val(amargin[0]); $("#zp_margin2").val(amargin[1]); $("#zp_margin3").val(amargin[2]); $("#zp_margin4").val(amargin[3]); }else{ $("#zp_margin1").val(0); $("#zp_margin2").val(0); $("#zp_margin3").val(0); $("#zp_margin4").val(0); }
-				if(data["Graphelement"].padding){ var apadding=data["Graphelement"].padding.split('px '); $("#zp_padding1").val(apadding[0]); $("#zp_padding2").val(apadding[1]); $("#zp_padding3").val(apadding[2]); $("#zp_padding4").val(apadding[3]); }else{ $("#zp_padding1").val(0); $("#zp_padding2").val(0); $("#zp_padding3").val(0); $("#zp_padding4").val(0); }
+				if(data["Graphelement"].margin){ var amargin=data["Graphelement"].margin.split(' '); $("#zp_margin1").val(amargin[0]); $("#zp_margin2").val(amargin[1]); $("#zp_margin3").val(amargin[2]); $("#zp_margin4").val(amargin[3]); }else{ $("#zp_margin1").val(0); $("#zp_margin2").val(0); $("#zp_margin3").val(0); $("#zp_margin4").val(0); }
+				if(data["Graphelement"].padding){ var apadding=data["Graphelement"].padding.split(' '); $("#zp_padding1").val(apadding[0]); $("#zp_padding2").val(apadding[1]); $("#zp_padding3").val(apadding[2]); $("#zp_padding4").val(apadding[3]); }else{ $("#zp_padding1").val(0); $("#zp_padding2").val(0); $("#zp_padding3").val(0); $("#zp_padding4").val(0); }
 				//
 				showform();
 				if(data["Graphelement"].nom=="fond"){
@@ -242,8 +242,8 @@ function actuvisu(){
 					if(datacle.fondimg) getImgSize("#"+datacle.nom,__prefix+"/img/graph/"+datacle.fondimgfolder+datacle.fondimg);
 
 					if(datacle.nom!="fond" && datacle.nom!="pied"){
-						if(datacle.margin){var amargin=datacle.margin.split('px '); var margin2 = (amargin[0])+"px "+(amargin[1])+"px "+(amargin[2])+"px "+(amargin[3])+"px "};
-						if(datacle.padding){var apadding=datacle.padding.split('px '); var padding2 = (apadding[0])+"px "+(apadding[1])+"px "+(apadding[2])+"px "+(apadding[3])+"px ";
+						if(datacle.margin){var amargin=datacle.margin.split(' '); var margin2 = (amargin[0])+" "+(amargin[1])+" "+(amargin[2])+" "+(amargin[3])+" "};
+						if(datacle.padding){var apadding=datacle.padding.split(' '); var padding2 = (apadding[0])+" "+(apadding[1])+" "+(apadding[2])+" "+(apadding[3])+" ";
 						if(datacle.margin) $("#"+datacle.nom).css("margin",margin2)};
 						if(datacle.padding) $("#"+datacle.nom).css("padding",padding2);
 					}
@@ -257,12 +257,12 @@ function actuvisu(){
 						if(datacle.width) $("#pied").css("max-width",datacle.width);
 						else $("#pied").css("width","100%");
 						$("#pied").css("margin","auto");
-						if(datacle.margin){var amargin=datacle.margin.split('px '); var margin2 = (amargin[0])+"px "+(amargin[1])+"px "+(amargin[2])+"px "+(amargin[3])+"px "};
+						if(datacle.margin){var amargin=datacle.margin.split(' '); var margin2 = (amargin[0])+"px "+(amargin[1])+"px "+(amargin[2])+"px "+(amargin[3])+"px "};
 						if(datacle.margin) $("#pied").css("padding",margin2);
 						$("#piedcont").css("width",$("#tete").width());
 						if(datacle.height) $("#piedcont").css("height",datacle.height);
 						$("#piedcont").css("margin","auto");
-						if(datacle.padding){var apadding=datacle.padding.split('px '); var padding2 = (apadding[0])+"px "+(apadding[1])+"px "+(apadding[2])+"px "+(apadding[3])+"px ";}
+						if(datacle.padding){var apadding=datacle.padding.split(' '); var padding2 = (apadding[0])+"px "+(apadding[1])+"px "+(apadding[2])+"px "+(apadding[3])+"px ";}
 						if(datacle.padding) $("#piedcont").css("padding",padding2);
 					}else if(datacle.nom=="gauche"){
 						if(!datacle.active) $("#gauche").css("width",0);
@@ -271,8 +271,8 @@ function actuvisu(){
 						if(!datacle.active) $("#droite").css("width",0);
 						else if(datacle.width) $("#droite").css("width",datacle.width);
 					}else if(datacle.nom=="centre"){
-						if(datacle.margin){var amargin=datacle.margin.split('px '); var marginW = amargin[1]+amargin[3];}else{ var marginW=0; }
-						if(datacle.padding){var apadding=datacle.padding.split('px '); var paddingW = apadding[1]+apadding[3];}else{ var paddingW=0; }
+						if(datacle.margin){var amargin=datacle.margin.split(' '); var marginW = amargin[1]+amargin[3];}else{ var marginW=0; }
+						if(datacle.padding){var apadding=datacle.padding.split(' '); var paddingW = apadding[1]+apadding[3];}else{ var paddingW=0; }
 						var Wcentre = $("#contenu").width()-$("#gauche").width()-$("#droite").width()-paddingW-marginW;
 						$("#centre").css("max-width",Wcentre);
 						
@@ -294,6 +294,7 @@ function actuvisu(){
 		},
 		error: function(xhr, textStatus, error){
 			//
+			console.log(error);
 		}
 	});
 }
@@ -318,8 +319,43 @@ function saveform(){
 	if(!$("#zp_padding2").val()) $("#zp_padding2").val(0);
 	if(!$("#zp_padding3").val()) $("#zp_padding3").val(0);
 	if(!$("#zp_padding4").val()) $("#zp_padding4").val(0);
-	var margin = $("#zp_margin1").val()+"px "+$("#zp_margin2").val()+"px "+$("#zp_margin3").val()+"px "+$("#zp_margin4").val()+"px ";
-	var padding = $("#zp_padding1").val()+"px "+$("#zp_padding2").val()+"px "+$("#zp_padding3").val()+"px "+$("#zp_padding4").val()+"px ";
+	if($("#zp_margin1").val().toLowerCase().indexOf("px") >= 0 || $("#zp_margin1").val().toLowerCase().indexOf("em") >= 0 || $("#zp_margin1").val().toLowerCase().indexOf("%") >= 0 || $("#zp_margin1").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin1 = $("#zp_margin1").val()+" ";
+	else
+		var margin1 = $("#zp_margin1").val()+"px ";
+	if($("#zp_margin2").val().toLowerCase().indexOf("px") >= 0 || $("#zp_margin2").val().toLowerCase().indexOf("em") >= 0 || $("#zp_margin2").val().toLowerCase().indexOf("%") >= 0 || $("#zp_margin2").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin2 = $("#zp_margin2").val()+" ";
+	else
+		var margin2 = $("#zp_margin2").val()+"px ";
+	if($("#zp_margin3").val().toLowerCase().indexOf("px") >= 0 || $("#zp_margin3").val().toLowerCase().indexOf("em") >= 0 || $("#zp_margin3").val().toLowerCase().indexOf("%") >= 0 || $("#zp_margin3").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin3 = $("#zp_margin3").val()+" ";
+	else
+		var margin3 = $("#zp_margin3").val()+"px ";
+	if($("#zp_margin4").val().toLowerCase().indexOf("px") >= 0 || $("#zp_margin4").val().toLowerCase().indexOf("em") >= 0 || $("#zp_margin4").val().toLowerCase().indexOf("%") >= 0 || $("#zp_margin4").val().toLowerCase().indexOf("auto") >= 0) 
+		var margin4 = $("#zp_margin4").val()+" ";
+	else
+		var margin4 = $("#zp_margin4").val()+"px ";
+	var margin = margin1+margin2+margin3+margin4;
+	if($("#zp_padding1").val().toLowerCase().indexOf("px") >= 0 || $("#zp_padding1").val().toLowerCase().indexOf("em") >= 0 || $("#zp_padding1").val().toLowerCase().indexOf("%") >= 0 || $("#zp_padding1").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding1 = $("#zp_padding1").val()+" ";
+	else
+		var padding1 = $("#zp_padding1").val()+"px ";
+	if($("#zp_padding2").val().toLowerCase().indexOf("px") >= 0 || $("#zp_padding2").val().toLowerCase().indexOf("em") >= 0 || $("#zp_padding2").val().toLowerCase().indexOf("%") >= 0 || $("#zp_padding2").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding2 = $("#zp_padding2").val()+" ";
+	else
+		var padding2 = $("#zp_padding2").val()+"px ";
+	if($("#zp_padding3").val().toLowerCase().indexOf("px") >= 0 || $("#zp_padding3").val().toLowerCase().indexOf("em") >= 0 || $("#zp_padding3").val().toLowerCase().indexOf("%") >= 0 || $("#zp_padding3").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding3 = $("#zp_padding3").val()+" ";
+	else
+		var padding3 = $("#zp_padding3").val()+"px ";
+	if($("#zp_padding4").val().toLowerCase().indexOf("px") >= 0 || $("#zp_padding4").val().toLowerCase().indexOf("em") >= 0 || $("#zp_padding4").val().toLowerCase().indexOf("%") >= 0 || $("#zp_padding4").val().toLowerCase().indexOf("auto") >= 0) 
+		var padding4 = $("#zp_padding4").val()+" ";
+	else
+		var padding4 = $("#zp_padding4").val()+"px ";
+	var padding = padding1+padding2+padding3+padding4;
+	
+	//var margin = $("#zp_margin1").val()+"px "+$("#zp_margin2").val()+"px "+$("#zp_margin3").val()+"px "+$("#zp_margin4").val()+"px ";
+	//var padding = $("#zp_padding1").val()+"px "+$("#zp_padding2").val()+"px "+$("#zp_padding3").val()+"px "+$("#zp_padding4").val()+"px ";
 	var fondcolor = $("#zp_fondcolor").val();
 	var fondimg = $("#zp_fondimg").val();
 	var fondimgpos = $("#zp_fondimgpos").val();

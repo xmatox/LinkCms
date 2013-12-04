@@ -6,7 +6,7 @@ echo "<h1>";
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	echo " > ".$theform;
 echo "</h1>";
@@ -18,7 +18,7 @@ echo "<div class='ajout'>";
 			'action'=>'editelement',
 			$theformid
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</div>";
 

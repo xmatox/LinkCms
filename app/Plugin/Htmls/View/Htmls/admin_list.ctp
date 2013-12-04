@@ -11,7 +11,7 @@ echo "<div class='ajout'>";
 			'action'=>'edit',
 			0
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</div>";
 

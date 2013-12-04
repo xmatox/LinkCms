@@ -5,7 +5,7 @@ echo "<h1>";
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -65,18 +65,33 @@ echo "<div class='clear'></div>";
 		
 		?>
 		<script type="text/javascript">
-			//<![CDATA[
-				CKEDITOR.replace( "inputcontenu<?php echo $lang; ?>");
-			//]]>
+		if(CKEDITOR.instances["inputcontenu<?php echo $lang; ?>"]) {
+			
+			CKEDITOR.remove(CKEDITOR.instances["inputcontenu<?php echo $lang; ?>"]);
+		}
+
+		CKEDITOR.replace( "inputcontenu<?php echo $lang; ?>");
+
 		</script>
 		<?php
 		$i++;
 	}
-
-	
-	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->submit(__("Sauvegarder"),array('id' => 'submitpage','update' => '#popup_edit_cont'));
 	echo $this->Js->writeBuffer();
 	echo "</div>";
 	
 ?>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#submitpage").hover(function(){
+		updateElementCK();
+	});
+	
+});
+function updateElementCK(){
+	for ( instance in CKEDITOR.instances ){
+		CKEDITOR.instances[instance].updateElement();
+	}
+}
+</script>
 </fieldset>

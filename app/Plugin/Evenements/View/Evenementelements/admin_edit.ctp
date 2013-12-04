@@ -87,10 +87,14 @@ echo "<div class='clear'></div>";
 		if(!empty($this->Form->data[$tablename]["type"]) && $this->Form->data[$tablename]["type"]=="infomulti"){ 
 			?>
 			<script type="text/javascript">
-				//<![CDATA[
-					CKEDITOR.replace( "inputcontent<?php echo $lang; ?>");
-				//]]>
-			</script>
+		if(CKEDITOR.instances["inputcontent<?php echo $lang; ?>"]) {
+			
+			CKEDITOR.remove(CKEDITOR.instances["inputcontent<?php echo $lang; ?>"]);
+		}
+
+		CKEDITOR.replace( "inputcontent<?php echo $lang; ?>");
+
+		</script>
 			<?php
 		}
 		$i++;

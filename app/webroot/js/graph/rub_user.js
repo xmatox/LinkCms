@@ -32,8 +32,10 @@ function recupform_rub(zone){
 function saveform_rub(zone){
 	set_loader(true);
 	var contenutype = $("#contenutype").val();
-	var contenupage = $("#contenupagec").val();
-	
+	if($("#contenupagec").val())
+		var contenupage = $("#contenupagec").val();
+	else
+		var contenupage = "new";
 	var formUrl = __prefix+"/rubriqueelements/ajax_saveform/";
 	$.ajax({
 		type: 'POST',
@@ -43,10 +45,11 @@ function saveform_rub(zone){
 		data: { contenutype: contenutype,contenupage: contenupage,zone: zone },
 		success: function(data) {
 			set_loader(false);
-			if(data){
-				recupform_rub(zone);
+			if(data.e_statut=="ok"){
+				recupform_el(zone);
+			}else if(data.e_statut=="new"){
+				edit_cont("re_"+data.e_value);
 			}
-			
 		
 		},
 		error: function(xhr, textStatus, error){

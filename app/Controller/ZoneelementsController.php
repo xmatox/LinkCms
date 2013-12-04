@@ -65,8 +65,7 @@ class ZoneelementsController extends AppController {
 	//
 	
 	function ajax_recupform(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			$zone = $this->request->data['zone'];
 			$result = $this->Zoneelement->find('all',
 				array( 
@@ -100,21 +99,13 @@ class ZoneelementsController extends AppController {
 				));
 				
 			}
-            // On encode au format JSON et on affiche directement ce résultat (pour le récupérer dans la vue)
             echo json_encode($json);
- 
-            // Il faut penser à terminer le script brutalement pour court-circuiter les mécanismes
-            // de CakePHP (méthodes de la classe mère AppController par exemple)
             exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
 		}
 	}
 	function ajax_recupzone(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			$zone = $this->request->data['zone'];
 			$result = $this->Zoneelement->find('first',
 				array( 
@@ -153,19 +144,12 @@ class ZoneelementsController extends AppController {
 			}
             // On encode au format JSON et on affiche directement ce résultat (pour le récupérer dans la vue)
             echo json_encode($json);*/
- 
-            // Il faut penser à terminer le script brutalement pour court-circuiter les mécanismes
-            // de CakePHP (méthodes de la classe mère AppController par exemple)
             exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
 		}
 	}
 	function admin_ajax_getpages(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		 if ( $this->request->is( 'ajax' ) ) {
 			if($this->request->query[ 'id' ]==0){
 				$result2="";
 			}else{
@@ -186,21 +170,12 @@ class ZoneelementsController extends AppController {
 						'recursive' => -1
 				));
 			}
-            // On encode au format JSON et on affiche directement ce résultat (pour le récupérer dans la vue)
             echo json_encode($result2);
- 
-            // Il faut penser à terminer le script brutalement pour court-circuiter les mécanismes
-            // de CakePHP (méthodes de la classe mère AppController par exemple)
             exit();
-        }
-        else {
-            // Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-            // Pour nous dans cet exemple, c'est inutile...
         }
 	}
 	function ajax_saveform($elementtype_id=null,$contenupage_id=null,$zone=null){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 		
 			if(!$elementtype_id) $elementtype_id = $this->request->data['elementtype'];
 			if(!$contenupage_id) $contenupage_id = $this->request->data['contenupage'];
@@ -213,7 +188,13 @@ class ZoneelementsController extends AppController {
 				)
 			);
 			$graphelement_id = $graph["Graphelement"]["id"];
-			
+			// detection nouveau contenu
+			if($contenupage_id=="new"){
+				$contenupage_id = $this->Zoneelement->savenew($elementtype_id);
+				$statut = "new";
+			}else{
+				$statut = "ok";
+			}
 			$data = array('graphelement_id' => $graphelement_id, 'contenupage_id' => $contenupage_id, 'elementtype_id' => $elementtype_id);
 			//
 			$this->Zoneelement->save($data);
@@ -222,18 +203,18 @@ class ZoneelementsController extends AppController {
 			//
 			$data2 = array('nom' => "ze_".$lid, 'active' => true);
 			$this->Zoneelement->Graphelement->save($data2);
-			
-			echo json_encode("ok");
+			if($statut=="new"){
+				
+				echo json_encode(array("e_statut"=>$statut,"e_value"=>$lid));
+			}else{
+				echo json_encode(array("e_statut"=>$statut,"e_value"=>""));
+			}
 			exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
 		}
 	}
 	function ajax_deleteform(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			$id = $this->request->data['id'];
 			$groupe = $this->Zoneelement->Graphelement->find('first',array(
 				'conditions' => array( 'nom' => "ze_".$id),
@@ -245,14 +226,10 @@ class ZoneelementsController extends AppController {
 			if($this->Zoneelement->delete($id)) echo json_encode($id);
 			 exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
 		}
 	}
 	function ajax_actueditzone(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		if ( $this->request->is( 'ajax' ) ) {
 			$zone = $this->request->data['zone'];
 			$id = $this->request->data['id'];
 			$result = $this->Zoneelement->find('first',
@@ -269,12 +246,10 @@ class ZoneelementsController extends AppController {
             echo json_encode($aresult);
             exit();
         
-		} else {
 		}
 	}
 	function ajax_setposition(){
-		 // Cas des requêtes AJAX
-        if ( $this->request->is( 'ajax' ) ) {
+		 if ( $this->request->is( 'ajax' ) ) {
 			$id = $this->request->data['id'];
 			$position = $this->request->data['position'];
 			$data = array('ordre' => $position);
@@ -283,9 +258,6 @@ class ZoneelementsController extends AppController {
 			if($this->Zoneelement->save($data)) echo json_encode($id);
 			 exit();
         
-		} else {
-			// Code qui servirait dans le cas de requêtes http classiques (par opposition à AJAX)
-			// Pour nous dans cet exemple, c'est inutile...
 		}
 	}
 	function ajax_editcont() {

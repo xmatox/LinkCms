@@ -7,9 +7,17 @@ echo "<h1>";
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
+echo $this->Js->link(
+		"> Retour paramètre",
+		array(
+			'action'=>'param',
+			$idEv
+		),
+		array('buffer'=>false,'update' => '#popup_edit_cont')
+	);
 ?>
 
 <fieldset>
@@ -62,7 +70,7 @@ echo "</form>";
 			trash : true,
 			select : false,
 			clone : true,
-			script : '../../../../js/multiupload2/upload.php',
+			script : __prefix+'/js/multiupload2/upload.php',
 			foldermin : '../../img/diaporamas/<?php echo $idEv; ?>',
 			heightmin : '<?php echo $photo[$tablename]['height']; ?>',
 			widthmin : '<?php echo $photo[$tablename]['width']; ?>'

@@ -2,35 +2,35 @@
 echo $this->Html->script("multiupload/dropfile.js");
 echo $this->Html->css("/js/multiupload/style.css");
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		"Rubriques",
 		array(
 			'controller'=>'rubriques', 
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 	if(isset($this->params['named']['cat']) && $this->params['named']['cat']!=0){
 		echo " > ";
-		echo $this->Html->link(
+		echo $this->Js->link(
 			$lescats[$this->params['named']['cat']],
 			array(
 				'controller'=>'rubriques', 
 				'action'=>'list',
 				$this->params['named']['cat']
 			),
-			array('escape'=>false)
+			array('buffer'=>false,'update' => '#popup_edit_cont')
 		);
 	}else if(isset($this->Form->data["Rubrique"]["parent"]) && $this->Form->data["Rubrique"]["parent"]!=0){
 		echo " > ";
-		echo $this->Html->link(
+		echo $this->Js->link(
 			$lescats[$this->Form->data["Rubrique"]["parent"]],
 			array(
 				'controller'=>'rubriques', 
 				'action'=>'list',
 				$this->Form->data["Rubrique"]["parent"]
 			),
-			array('escape'=>false)
+			array('buffer'=>false,'update' => '#popup_edit_cont')
 		);
 	}
 echo "</h1>";
@@ -67,31 +67,12 @@ if(isset($this->params['named']['cat'])){
 	echo $this->Form->input('id');
 	echo $this->Form->input("Rubrique.parent",array("type"=>"hidden","label"=>"","value" => $idCat));
 	echo "<br/><label>Type : </label><br/>";
-$typec = array("0"=>"Catégorie","1"=>"Page");
+$typec = array("0"=>"Catégorie","1"=>"Page","2"=>"Lien Externe");
 	echo $this->Form->input("Rubrique.contenutype_id",array(
 		"options"=>$typec,
 		"label"=>"",
 		"id"=>"contenutype"
 	));
-	/*echo $this->Form->input("Rubrique.contenutype_id",array(
-		"options"=>$typec,
-		"label"=>"",
-		"id"=>"contenutype",
-		"onchange"=> "
-                $.get( '" . $this->Html->url( array( 'controller' => 'rubriques', 'action' => 'ajax_getpages' ), true ) . "',
-                        { id: $( '#contenutype' ).val() },
-                        function( data ) {
-                            var obj = jQuery.parseJSON( data );
-							$('#contenupage').empty();
-							 $.each(obj, function(index, value) {
-								$('#contenupage').append('<option value=\"'+ index +'\">'+ value +'</option>');
-							});
-                        }
-                );
-                return false;"
-	));
-	echo "<br/><label>Page : </label><br/>";
-	echo $this->Form->input("Rubrique.contenupage_id",array("options"=>$pages,"label"=>"","id"=>"contenupage"));*/
 	$i=0;
 	foreach(Configure::read('Config.languages') as $lang){
 		if($i==0) echo "<div id='input_".$lang."'>";
@@ -160,6 +141,11 @@ $typec = array("0"=>"Catégorie","1"=>"Page");
 	}
 	?>
 	<script type="text/javascript">
+		if(isSimilarToPrefix($(location).attr('href'))){
+			returnfolder = './img/general/boutons/';
+		}else{
+			returnfolder = '../../img/general/boutons/';
+		}
 		jQuery(function($){
 			$('#dropfile_bnt').dropfile({
 				message : 'Déposez vos fichiers',
@@ -170,6 +156,7 @@ $typec = array("0"=>"Catégorie","1"=>"Page");
 				inputmaj : $('#img_btn'),
 				script : __prefix+'/js/multiupload/upload_admin.php',
 				foldermin : '../../img/general/boutons/',
+				returnfolder : returnfolder,
 				heightmin : '0',
 				widthmin : '0'
 			});
@@ -184,6 +171,7 @@ $typec = array("0"=>"Catégorie","1"=>"Page");
 				inputmaj : $('#img_btn_actif'),
 				script : __prefix+'/js/multiupload/upload_admin.php',
 				foldermin : '../../img/general/boutons/',
+				returnfolder : returnfolder,
 				heightmin : '0',
 				widthmin : '0'
 			});

@@ -20,9 +20,8 @@ class PageslibresController extends PageslibresAppController {
 			$this->Pageslibre->locale = Configure::read('Config.languages');
 			if ($this->Pageslibre->save($this->data)) {
 				$this->Session->setFlash(__('La page à bien été enregistrée', true));
-				//$this->redirect(array('action' => 'list'));
 			} else {
-				$this->Session->setFlash(__('La page n\'a pas pu être enregistrée.', true));
+				$this->Session->setFlash(__('La page n\'a pas pu être enregistrée. (Tous les champs sont obligatoires)', true));
 			}
 		}
 		if(isset($id)){
@@ -33,14 +32,14 @@ class PageslibresController extends PageslibresAppController {
 	function admin_suprim($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__("Id invalide pour la page", true));
-			$this->redirect($this->referer());
+		$this->redirect(array('action'=>'list'));
 		}
 		if ($this->Pageslibre->delete($id)) {
 			$this->Session->setFlash(__("La page a bien été supprimée", true));
-			$this->redirect($this->referer());
+		$this->redirect(array('action'=>'list'));
 		}
 		$this->Session->setFlash(__("La page n'a pas pu être supprimée.", true));
-		$this->redirect($this->referer());
+		$this->redirect(array('action'=>'list'));
 	}
 	function beforeRender() {
 		$this->set('titre', $this->NomPlugin);

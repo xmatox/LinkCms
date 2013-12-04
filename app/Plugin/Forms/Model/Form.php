@@ -64,6 +64,11 @@ class Form extends AppModel{
 				if($f["Formelement"]["type"]=="text"){
 					$output .='<input type="text" name="fo_'.$f["Formelement"]["id"].'" id="inputFo'.$f["Formelement"]["id"].'" value="'.$f["Formelement"]["content"].'" '.$width.' /><br/>';
 				}else if($f["Formelement"]["type"]=="textarea"){
+					if($f["Formelement"]["width"]!=0){
+						$width= " style='width:".$f["Formelement"]["width"]."px;height:100px' ";
+					}else{
+						$width="";
+					}
 					$output .='<textarea id="inputFo'.$f["Formelement"]["id"].'" name="fo_'.$f["Formelement"]["id"].'" '.$width.'>'.$f["Formelement"]["content"].'</textarea><br/>';
 				}else if($f["Formelement"]["type"]=="radio"){
 					$acontent = explode(";",$f["Formelement"]["content"]);
@@ -96,6 +101,14 @@ class Form extends AppModel{
 			$output .='</form>';
 		$output .= "</div>";
 		return $output;
+	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Contact",'sendfrom' => "me@monsite.com",'sendto' => "me@monsite.com");
+		$this->save($dat);
+		$id = $this->id;
+		return $id;
 	}
 }
 ?>

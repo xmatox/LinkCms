@@ -35,5 +35,13 @@ class Bandcamp extends AppModel{
 		$output .= "</div>";
 		return $output;
 	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Nom Groupe", 'bandid' => "2931369689");
+		$this->save($dat);
+		$id = $this->id;
+		return $id;
+	}
 }
 ?>

@@ -53,6 +53,8 @@ $(document).ready(function() {
 		function () {
 			if($('#bout_'+$(this).attr("id")).length<1){
 				$(this).append("<div id='bout_"+$(this).attr("id")+"' data-id='"+$(this).attr("id")+"' class='edithis ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-gear'></a></div>");
+				$(this).append("<div id='bout_plus_"+$(this).attr("id")+"' data-id='"+$(this).attr("id")+"' class='edithis ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-plusthick'></a></div>");
+				$('#bout_plus_'+$(this).attr("id")).css({right:40});
 				//
 				$('#bout_'+$(this).attr("id")).click(function() {
 					$('.edithis').not('#bout_'+$(this).attr("data-id")).remove();
@@ -63,6 +65,15 @@ $(document).ready(function() {
 					$('#zp_elements').css("display","block");
 					$('#zp_elements').attr("data-id",selecte);
 					$('#zp_contenus').css("display","none");
+					return false;
+				});
+
+				$('#bout_plus_'+$(this).attr("id")).click(function() {
+					if($('#elementtypeInside').length<1){
+						$("#elementtype").clone().prependTo($(this)).attr("id","elementtypeInside");
+						$("#elementtypeInside").attr("onchange","addElement('"+$(this).attr("data-id")+"')");
+					}
+					return false;
 				});
 			}else{
 				$('#bout_'+$(this).attr("id")).click(function() {
@@ -73,6 +84,7 @@ $(document).ready(function() {
 					selecte="fond";
 					$('#zp_elements').css("display","none");
 					$('#zp_elements').attr("data-id",selecte);
+					return false;
 
 				});
 			}
@@ -80,6 +92,7 @@ $(document).ready(function() {
 		function () {
 			if(selecte!=$(this).attr("id")){
 				$('#bout_'+$(this).attr("id")).remove();
+				$('#bout_plus_'+$(this).attr("id")).remove();
 			}
 		}
 	);
@@ -87,6 +100,8 @@ $(document).ready(function() {
 		function () {
 			if($('#bout_'+$(this).find(".el_blocks").attr("id")).length<1){
 				$(this).append("<div id='bout_"+$(this).find(".el_blocks").attr("id")+"' data-id='"+$(this).find(".el_blocks").attr("id")+"' class='edithis ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-gear'></a></div>");
+				$(this).append("<div id='bout_plus_"+$(this).find(".el_blocks").attr("id")+"' data-id='"+$(this).find(".el_blocks").attr("id")+"' class='edithis ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-plusthick'></a></div>");
+				$('#bout_plus_'+$(this).find(".el_blocks").attr("id")).css({right:40});
 				//
 				$('#bout_'+$(this).find(".el_blocks").attr("id")).click(function() {
 					$('.edithis').not('#bout_'+$(this).attr("data-id")).remove();
@@ -99,6 +114,14 @@ $(document).ready(function() {
 					$('#zp_elements').css("display","none");
 					$('#zp_elements').attr("data-id","centre");
 					$('#zp_elstyle').css("display","none");
+					return false;
+				});
+				$('#bout_plus_'+$(this).find(".el_blocks").attr("id")).click(function() {
+					if($('#contenutypeInside').length<1){
+						$("#contenutype").clone().prependTo($(this)).attr("id","contenutypeInside");
+						$("#contenutypeInside").attr("onchange","addContent('"+$(this).attr("data-id")+"')");
+					}
+					return false;
 				});
 			}else{
 				$('#bout_'+$(this).find(".el_blocks").attr("id")).click(function() {
@@ -112,12 +135,14 @@ $(document).ready(function() {
 					$('#zp_elements').css("display","none");
 					$('#zp_elements').attr("data-id",selecte);
 					$('#zp_elstyle').css("display","none");
+					return false;
 				});
 			}
 		},
 		function () {
 			if(selecte!=$(this).find(".el_blocks").attr("id")){
 				$('#bout_'+$(this).find(".el_blocks").attr("id")).remove();
+				$('#bout_plus_'+$(this).find(".el_blocks").attr("id")).remove();
 			}
 		}
 	);
@@ -131,19 +156,41 @@ $(document).ready(function() {
 	
 	
 });
+function addRemoveCadre(div, plus){
+		
+          martop = new Number($(div).css("margin-top").replace("px",""));
+          marleft = new Number($(div).css("margin-left").replace("px",""));
+          marright = new Number($(div).css("margin-right").replace("px",""));
+          marbottom = new Number($(div).css("margin-bottom").replace("px",""));
+          if(plus){
+          	$(div).addClass('contourselect');
+			$(div).css("margin-top",martop-2);
+			$(div).css("margin-left",marleft-2);
+			$(div).css("margin-right",marright-2);
+			$(div).css("margin-bottom",marbottom-2);
+          }else{
+          	$(div).removeClass('contourselect');
+          	$(div).css("margin-top",martop+2);
+			$(div).css("margin-left",marleft+2);
+			$(div).css("margin-right",marright+2);
+			$(div).css("margin-bottom",marbottom+2);
+          }
+          
+}
 function init_sortable(){
    $(".editable .el_block").hover(
      function () {
       
         if ($('#bout_'+$(this).parent().attr('id')).hasClass('edithis_ok') || $('#bout_'+$(this).parent().parent().attr('id')).hasClass('edithis_ok')) {
-           $(this).append("<div id='resizethis' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-arrow-4-diag'></a></div>");
-          $(this).addClass('contourselect');
+          addRemoveCadre(this,true);
+          $(this).append("<div id='resizethis' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-arrow-4-diag'></a></div>");
           $(this).append("<div id='paramthisC' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-gear'></a></div>");
           $(this).append("<div id='delethisC' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-trash'></a></div>");
           $(this).append("<div id='edithisC' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-pencil'></a></div>");
           var position = $(this).position();
-          leftVal = position.left;
           martop = new Number($(this).css("margin-top").replace("px",""));
+          marleft = new Number($(this).css("margin-left").replace("px",""));
+          leftVal = position.left+marleft;
           topVal = position.top+martop;
           $('#resizethis').css({left:leftVal,top:topVal}).fadeIn(1500);
           $('#paramthisC').css({left:leftVal+90,top:topVal}).fadeIn(1500);
@@ -152,16 +199,19 @@ function init_sortable(){
           $("#paramthisC").click(
             function () {
               paramC(this);
+              return false;
             }
           );
           $("#delethisC").click(
             function () {
               deleteC(this);
+              return false;
             }
           );
           $("#edithisC").click(
             function () {
               edithisC(this);
+              return false;
             }
           );
         }
@@ -172,7 +222,9 @@ function init_sortable(){
         $('#paramthisC').remove();
         $('#delethisC').remove();
         $('#edithisC').remove();
-       $(this).removeClass('contourselect');
+        if($(this).hasClass('contourselect')){
+			addRemoveCadre(this,false);
+		}
       }
     );
 	//
@@ -180,14 +232,15 @@ function init_sortable(){
      function () {
       
         if ($('#bout_'+$(this).parent().attr('id')).hasClass('edithis_ok') || $('#bout_'+$(this).parent().parent().attr('id')).hasClass('edithis_ok')) {
-           $(this).append("<div id='resizethis' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-arrow-4-diag'></a></div>");
-          $(this).addClass('contourselect');
+          addRemoveCadre(this,true);
+          $(this).append("<div id='resizethis' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-arrow-4-diag'></a></div>");
           $(this).append("<div id='paramthisR' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-gear'></a></div>");
           $(this).append("<div id='delethisR' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-trash'></a></div>");
           $(this).append("<div id='edithisR' class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-pencil'></a></div>");
           var position = $(this).position();
-          leftVal = position.left;
           martop = new Number($(this).css("margin-top").replace("px",""));
+          marleft = new Number($(this).css("margin-left").replace("px",""));
+          leftVal = position.left+marleft;
           topVal = position.top+martop;
           $('#resizethis').css({left:leftVal,top:topVal}).fadeIn(1500);
           $('#paramthisR').css({left:leftVal+90,top:topVal}).fadeIn(1500);
@@ -196,16 +249,19 @@ function init_sortable(){
           $("#paramthisR").click(
             function () {
               paramR(this);
+              return false;
             }
           );
           $("#delethisR").click(
             function () {
               deleteR(this);
+              return false;
             }
           );
           $("#edithisR").click(
             function () {
               edithisC(this);
+              return false;
             }
           );
         }
@@ -216,7 +272,9 @@ function init_sortable(){
         $('#paramthisR').remove();
         $('#delethisR').remove();
         $('#edithisR').remove();
-       $(this).removeClass('contourselect');
+        if($(this).hasClass('contourselect')){
+			addRemoveCadre(this,false);
+		}
       }
     );
 	$(".el_block").parent().sortable({ 
@@ -277,8 +335,16 @@ function deleteR(id){
       $('#zp_elstyle').css("display","none");
   }
 }
-
-
+function addContent(zone){
+	$("#contenutype").val($("#contenutypeInside").val());
+	$("#contenupagec").val("new");
+	saveform_rub(zone);
+}
+function addElement(zone){
+	$("#elementtype").val($("#elementtypeInside").val());
+	$("#contenupage").val("new");
+	saveform_el(zone);
+}
 function setsize(zone,height,width){
 	set_loader(true);
   var formUrl = __prefix+"/graphelements/ajax_editsize";
@@ -307,33 +373,48 @@ function set_loader(show){
 function show_iframe(url){
 	//$("body").append("<div id='popup_edit'><div id='popup_edit_cont'><iframe name='frame_edit' src='"+__prefix+"/"+url+"' scrolling='auto' height='500' width='800' frameborder='no'></iframe></div></div>");
 	set_loader(true);
-	$("body").append("<div id='popup_edit'><div id='popup_edit_cont_all'><div id='popup_edit_move'>DEPLACER</div><div id='popup_edit_close'>FERMER</div><div id='popup_edit_cont'></div></div></div>");
+	/*$("body").append("<div id='popup_edit'><div id='popup_edit_cont_all'><div id='popup_edit_head'><div id='popup_edit_close'>FERMER</div></div><div id='popup_edit_cont'></div></div></div>");*/
+	$("body").append("<div id='popup_edit'><div id='popup_edit_cont_all'><div id='popup_edit_close'  class='ui-state-default ui-corner-all'><a href='#' class='ui-icon ui-icon-close'></a></div><div id='popup_edit_cont'></div></div></div>");
 	$("#popup_edit").fadeIn("slow");
-	$('#popup_edit_cont').load(__prefix+"/"+url, function() {
+	$('#popup_edit_cont').load(__prefix+"/"+url, function(response, status, xhr) {
+		if (status == "error") {
+			alert("Une erreur est survenue au chargement de la page, vous pouvez recommencer une fois la page recharger.");
+			location.reload();
+		}
 		set_loader(false);
 		$("#popup_edit_cont_all").slideDown("slow");
 		$("body").css("overflow","hidden");
-		$('#popup_edit_cont_all').draggable({ handle: "#popup_edit_move" });
-		$('.popup_edit_move').css("cursor","move");
 		$( "#popup_edit_cont_all" ).resizable({
 			helper: "ui-resizable-helper",
-			stop: function( event, ui ) {
-				$("#popup_edit_cont").css("height",ui.size.height-20);
-				
-			}
+			handles:'e'
 		});
 	});
 	$("#popup_edit_close").click(function() {
 		//$(this).remove();
 		//location.reload();
-		$("#popup_edit_cont_all").slideUp("slow");
-		
-		set_loader(true);
-		$('body').load(location.href, function() {
-			set_loader(false);
-			$("#popup_edit").fadeOut("slow");
-			$("body").css("overflow","auto");
-		});
+		hide_iframe();
 	});
 			
+}
+function hide_iframe(){
+	$("#popup_edit_cont_all").slideUp("slow");
+		
+	set_loader(true);
+	$('body').load(location.href, function(response, status, xhr) {
+		if (status == "error") {
+			location.reload();
+		}
+		set_loader(false);
+		$("#popup_edit").fadeOut("slow");
+		$("body").css("overflow","auto");
+	});
+}
+function isSimilarToPrefix(url){
+	if(url.substr(-1)=="/") url = url.substr(0,url.length-1);
+	var pathNameUrl = url.split("/");
+	var pathNamePrefix = __prefix.split("/");
+	pathNameUrl = pathNameUrl[pathNameUrl.length-1];
+	pathNamePrefix = pathNamePrefix[pathNamePrefix.length-1];
+	if(pathNameUrl==pathNamePrefix) return true;
+	else return false;
 }

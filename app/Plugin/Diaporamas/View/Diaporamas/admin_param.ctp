@@ -5,7 +5,7 @@ echo "<h1>";
 		array(
 			'action'=>'list'
 		),
-		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
+		array('buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 ?>
@@ -20,6 +20,16 @@ echo "</h1>";
  </legend>
 
 <?php
+echo '<div class="addPhoto">';
+echo $this->Js->link(
+		"",
+		array(
+			'action'=>'photo',
+			$this->Form->data[$tablename]["id"]
+		),
+		array('buffer'=>false,'update' => '#popup_edit_cont')
+	);
+echo '</div>';
 /* --- Affiche les drapeaux */
 $i=0;
 echo "<div style='float:left'>Selection de la langue : </div>";
@@ -61,6 +71,10 @@ echo "<div class='clear'></div>";
 		echo "</div>";
 		?>
 		<script type="text/javascript">
+		if(CKEDITOR.instances["inputcontenu<?php echo $lang; ?>"]) {
+			
+			CKEDITOR.remove(CKEDITOR.instances["inputcontenu<?php echo $lang; ?>"]);
+		}
 			//<![CDATA[
 				CKEDITOR.replace( "inputcontenu<?php echo $lang; ?>");
 			//]]>
@@ -83,9 +97,23 @@ echo "<div class='clear'></div>";
 	echo $this->Form->input("metatitle",array("label"=>"","size" => "50px"));
 	echo "<br/><label>Meta description : </label>";
 	echo $this->Form->input("metadescription",array("label"=>"","size" => "50px"));
-	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	//echo $this->Form->end("Envoyer");
+	echo $this->Js->submit(__("Sauvegarder"),array('id' => 'submitpage','update' => '#popup_edit_cont'));
 	echo $this->Js->writeBuffer();
 	echo "</div>";
 	
 ?>
 </fieldset>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#submitpage").hover(function(){
+		updateElementCK();
+	});
+	
+});
+function updateElementCK(){
+	for ( instance in CKEDITOR.instances ){
+		CKEDITOR.instances[instance].updateElement();
+	}
+}
+</script>

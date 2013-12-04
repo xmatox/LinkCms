@@ -55,13 +55,19 @@ class Evenement extends AppModel{
 				$output .="</div>";
 				$output .="<div style='height:1px;background-color:#D6D6D6;margin-left:10px;margin-right:20px;'></div>";
 			}
-			
-			
-
-
-
 		$output .= "</div>";
 		return $output;
+	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Evènement");
+		$this->save($dat);
+		$id = $this->id;
+		$this->Evenementelement->create();
+		$dat = array('date' => date("Y-m-d"),'lieu' => "Lieu",'info' => "Texte Information ",'infosup' => "",'lien' => "",'evenement_id' => $id);
+		$this->Evenementelement->save($dat);
+		return $id;
 	}
 }
 ?>
