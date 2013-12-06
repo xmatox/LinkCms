@@ -7,7 +7,7 @@ echo $this->Html->css("/js/jquery/colorpicker/css/colorpicker.css");
 echo $this->Html->css("/js/jquery/colorpicker/css/layout.css");
 
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		"Styles",
 		array(
 			'controller'=>'styles', 

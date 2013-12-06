@@ -110,7 +110,7 @@
   border: 1px #999999 solid;
 }
 .tab1>.tab_li_titre, .tab2>.tab_li_titre{
-  width:165px;
+  /*width:165px;*/
   height:20px;
   float:left;
   overflow: hidden;

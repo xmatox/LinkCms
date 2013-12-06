@@ -12,8 +12,6 @@ echo "<h1>";
 	echo " > ".$theevent;
 echo "</h1>";
 
-
-
 if(!empty($this->Form->data[$tablename]["titre"])){ 
 echo "<div class='ajout'>";
 	echo $this->Js->link(
@@ -53,6 +51,7 @@ if(empty($thecontent)){
 					$c[$tablename]['date']." - ".$c[$tablename]['titre'],
 					array(
 						'action'=>'list',
+						$theeventid,
 						$c[$tablename]["id"]
 					),
 					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
@@ -95,8 +94,8 @@ if(empty($thecontent)){
 <div >
 	<fieldset style="width:390px;margin:10px;border:1px #999 solid; background-color:#fff;">
 	<legend> 
-	<?php if(!empty($this->Form->data[$tablename]["lieu"])){ 
-		echo $this->Form->data[$tablename]["lieu"];
+	<?php if(!empty($this->Form->data[$tablename]["titre"])){ 
+		echo $this->Form->data[$tablename]["titre"];
 	}else{ 
 		echo "Nouveau";
 	} ?>
@@ -115,9 +114,12 @@ if(empty($thecontent)){
 		echo "<br/><label>Date : </label><br/>";
 		echo $this->Form->input('date',array("label"=>"",'id'=>'datepicker', 'type'=>'text',"size" => "30px"));
 		echo "<br/><label>Contenu : </label><br/>";
-		echo $this->Form->textarea('contenu',array("label"=>"","class"=>"","id"=>"infosup","size" => "30px"));
+		
+		echo $this->Form->textarea('contenu',array("label"=>"","class"=>"","id" => "infosup","size" => "30px"));
+		
+
 		//echo $this->Form->end("Envoyer");
-	echo $this->Js->submit(__("Sauvegarder"),array('update' => '#popup_edit_cont'));
+	echo $this->Js->submit(__("Sauvegarder"),array('id' => 'submitpage','update' => '#popup_edit_cont'));
 	echo $this->Js->writeBuffer();
 	
 	?>
@@ -128,6 +130,18 @@ if(empty($thecontent)){
 		}
 
 		CKEDITOR.replace( "infosup");
+
+$(document).ready(function() {
+	$("#submitpage").hover(function(){
+		updateElementCK();
+	});
+	
+});
+function updateElementCK(){
+	for ( instance in CKEDITOR.instances ){
+		CKEDITOR.instances[instance].updateElement();
+	}
+}
 
 		</script>
 	</fieldset>

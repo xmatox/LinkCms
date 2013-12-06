@@ -12,7 +12,7 @@ class ActualiteelementsController extends ActualitesAppController {
 			if ($this->Actualiteelement->save($this->data)) {
 				if(!isset($id)) $id = $this->Actualiteelement->id;
 				$this->Session->setFlash(__('L\'actualité à bien été enregistrée', true));
-				$this->redirect(array('action' => 'list',$idEvent,$id));
+				//$this->redirect(array('action' => 'list',$idEvent,$id));
 				//$this->redirect(array('action' => 'list'));
 			} else {
 				$this->Session->setFlash(__('L\'actualité n\'a pas pu être enregistrée.', true));

@@ -1,13 +1,13 @@
 <?php
 
 echo "<h1>";
-	echo $this->Html->link(
+	echo $this->Js->link(
 		"Plugins",
 		array(
 			'controller'=>'contenutypes', 
 			'action'=>'list'
 		),
-		array('escape'=>false)
+		array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 	);
 echo "</h1>";
 echo "<ul class='tabtitre'>";
@@ -27,19 +27,19 @@ if(empty($cat)){
 			echo "<ul class='tab2'>";
 		}
 			echo "<li class='tab_li_titre'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$c['Contenutype']['nom'],
 					array(
 						'controller'=>strtolower($c['Contenutype']['table']), 
 						'action'=>'list',
 						'plugin'=>strtolower($c['Contenutype']['table'])
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 				$this->Html->image('/admin/suprim_h20.png', array(
 					"alt" => "Supprimer"
 				)),
@@ -48,7 +48,7 @@ if(empty($cat)){
 					'action'=>'delete',
 					'plugin'=>strtolower($c['Contenutype']['table'])
 				),
-				array('escape'=>false)
+				array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 			);
 			echo "</li>";
 			
@@ -74,19 +74,19 @@ foreach($notexist as $lp){
 			echo "<ul class='tab1' style='background-color:#C9C9C9'>";
 		
 			echo "<li class='tab_li_titre'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$lp,
 					array(
 						'controller'=>strtolower($lp), 
 						'action'=>'install',
 						'plugin'=>strtolower($lp),
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
 			echo "<li class='tab_li_img'>";
-				echo $this->Html->link(
+				echo $this->Js->link(
 					$this->Html->image('/admin/add.png', array(
 						"alt" => "Installer"
 					)),
@@ -95,7 +95,7 @@ foreach($notexist as $lp){
 						'action'=>'install',
 						'plugin'=>strtolower($lp),
 					),
-					array('escape'=>false)
+					array('escape'=>false,'buffer'=>false,'update' => '#popup_edit_cont')
 				);
 			echo "</li>";
 			
