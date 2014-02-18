@@ -149,12 +149,19 @@ $(document).ready(function() {
 	// $(".editable .el_block").draggable({ containment: "parent" });
 
 	//iframe
-	$(".showiframe").css("cursor","pointer")
+	$(".showiframe").css("cursor","pointer");
 	$(".showiframe").click(function() {
 		show_iframe($(this).attr("data-value"));
 	});
-	
-	
+	// edit writter
+	$(".edit_block").css("cursor","pointer");
+	$(".edit_block").click(function() {
+		var element_id = $(this).attr("id").replace("ed_bl_","re_");
+  		edit_cont(element_id);
+	});
+	$(".editadmin>a").click(function() {
+		$(".editadmincont").slideToggle();
+	});
 });
 function addRemoveCadre(div, plus){
 		

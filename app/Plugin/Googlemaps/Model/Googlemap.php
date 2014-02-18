@@ -34,7 +34,7 @@ class Googlemap extends AppModel{
 		if(Configure::read('Parameter.cache')) $autocache=true; else $autocache=false;
 		//
 		$pages = $this->find('first',array(
-			'conditions' => array( 'id' => $id ),
+			'conditions' => array( 'Googlemap.id' => $id ),
 			'recursive' => -1,
 			'autocache' => $autocache
 		));
@@ -44,6 +44,25 @@ class Googlemap extends AppModel{
 		$output .= '<div id="address" style="display:none">'.$pages["Googlemap"]["adresse"].'</div><div id="contenuib" style="display:none">'.$pages["Googlemap"]["contenu"].'</div><div id="map_canvas" style="width:'.$pages["Googlemap"]["width"].'px; height:'.$pages["Googlemap"]["height"].'px"></div>';
 		$output .= "<div class='clear'></div></div>";
 		return $output;
+	}
+	// retourne infos plugin
+	function getName($id=null){
+		if(Configure::read('Parameter.cache')) $autocache=true; else $autocache=false;
+		$pages = $this->find('first',array(
+			'conditions' => array( 'Googlemap.id' => $id ),
+			'recursive' => -1,
+			'fields' => array("nom"),
+			'autocache' => $autocache
+		));
+		return $pages["Googlemap"]["nom"];
+	}
+	// fonction ajout d'un nouvel élément par défaut
+	function savenew(){
+		$this->create();
+		$dat = array('nom' => "Carte",'adresse' => "Toulouse",'width' => "300",'height' => "200");
+		$this->save($dat);
+		$id = $this->id;
+		return $id;
 	}
 }
 ?>

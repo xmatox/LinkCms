@@ -1,5 +1,5 @@
 
-Link To The Web v.1.6.2
+Link To The Web v.1.6.3
 ===============
 
 Link To The Web is based on [CakePHP 2.1.1](http://www.cakephp.org)
@@ -21,6 +21,9 @@ Quick Start
 Changelog
 ---------
 
+* v.1.6.3 
+	* Added : One Page Scroll Navigation Option 
+	* Added : Simple Administration for Users Webmaster 
 * v.1.6.2 
 	* Added Ajax : content creation
 * v.1.6.1 

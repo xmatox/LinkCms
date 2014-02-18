@@ -35,6 +35,18 @@ class Bandcamp extends AppModel{
 		$output .= "</div>";
 		return $output;
 	}
+	// retourne infos plugin
+	function getName($id=null){
+		if(Configure::read('Parameter.cache')) $autocache=true; else $autocache=false;
+		//
+		$pages = $this->find('first',array(
+			'conditions' => array( 'Bandcamp.id' => $id ),
+			'recursive' => -1,
+			'fields' => array("nom"),
+			'autocache' => $autocache
+		));
+		return $pages["Bandcamp"]["nom"];
+	}
 	// fonction ajout d'un nouvel élément par défaut
 	function savenew(){
 		$this->create();

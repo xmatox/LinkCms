@@ -27,6 +27,13 @@
 	<?php
 		if(Configure::read('Parameter.icone')==true){
 			echo $this->Html->meta('favicon.ico',Configure::read('Parameter.prefix').'/img/general/icone/favicon.ico',array('type' => 'icon'));
+		}else{
+			echo $this->Html->meta('favicon.ico',Configure::read('Parameter.prefix').'/favicon.ico',array('type' => 'icon'));
+		}
+
+		if(Configure::read('Parameter.scrollnav')==true){
+			echo $this->Html->script("jquery/smint/jquery.smint.js");
+			echo $this->Html->script("jquery/smint/initsmint.js");
 		}
 		/*echo $this->Html->css('knacss/knacss.css');
 		echo $this->Html->css('knacss/nav.css');*/
@@ -41,7 +48,7 @@
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
-		if($this->Session->read('Auth.User.role')=="admin"){
+		if($this->Session->read('Auth.User.role')=="admin" || $this->Session->read('Auth.User.role')=="webmaster"){
 			echo $this->Html->css('edit.css');
 			echo $this->Html->script("/js/jquery/colorpicker/js/colorpicker.js");
 			echo $this->Html->script("/js/jquery/colorpicker/js/eye.js");
@@ -138,6 +145,12 @@
 			</div>
 		</div>
 	<?php 
+	//admin edit
+	if($this->Session->read('Auth.User.role')=="admin" || $this->Session->read('Auth.User.role')=="webmaster"){
+		if(!empty($rub)){
+			echo "<div class='editadmin'><a>EDITER</a><div class='editadmincont'>".$simpleEdit."</div></div>";
+		}
+	}
 	//echo $this->element('sql_dump'); 
 	//admin edit
 	/*if($this->Session->read('Auth.User.role')=="admin"){

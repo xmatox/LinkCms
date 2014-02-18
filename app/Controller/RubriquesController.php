@@ -58,6 +58,7 @@ class RubriquesController extends AppController {
 		$this->set('conthtml', $conthtml);
 		// url admin
 		if($this->Session->read('Auth.User.role')=="admin"){
+			// get rubrique pour menu
 			$allrub = $this->Rubrique->getList();
 			$this->set('allrub', $allrub);
 			//
@@ -94,6 +95,14 @@ class RubriquesController extends AppController {
 				"recursive" => -1
 			));
 			$this->set('groupe', $groupe);
+			//list page admin
+			$simpleEdit = $this->Rubrique->Rubriqueelement->edit($rub['Rubrique']['id']);
+			$this->set('simpleEdit', $simpleEdit);
+		}else if($this->Session->read('Auth.User.role')=="webmaster"){
+			//list page admin
+			$simpleEdit = $this->Rubrique->Rubriqueelement->edit($rub['Rubrique']['id']);
+			$this->set('simpleEdit', $simpleEdit);
+			$this->set('rub', $rub);
 		}
 	}
 	function admin_edit($id=null){

@@ -41,6 +41,12 @@ Paramètre du site
 		echo $this->Form->input($i.'.id',array("label"=>"", "type" => "hidden", "value" => $p["Parametre"]["id"]));
 		if($p["Parametre"]["id"]==2)
 			echo $this->Form->input($i.".value",array("label"=>"","options" => $groupe,"value" => $p["Parametre"]["value"]));
+		else if($p["Parametre"]["id"]==9)
+		{
+			$prod=array(true=>' Activer ',false=>' Desactiver ');
+			echo $this->Form->radio($i.".value",$prod,array("label"=>"",'legend' => false,"id"=>"value_".$i,"value" => $p["Parametre"]["value"]));
+			echo "<br/>";
+		}
 		else if($p["Parametre"]["id"]==7)
 		{
 			$prod=array(true=>' Activer ',false=>' Desactiver ');
@@ -102,12 +108,12 @@ Paramètre du site
 					clone : false,
 					rename : true,
 					inputmaj : $('#value_3'),
-					script : '../../js/multiupload/upload.php',
-					foldermin : '../../img/general/icone',
-					widthmin : '0',
+					script : __prefix+'/js/multiupload/upload.php',
+					foldermin : '../../img/general/icone/',
+					widthmin : '16',
 					heightmin : '16',
-					foldermin2 : '../../img/general/logo',
-					widthmin2 : '0',
+					foldermin2 : '../../img/general/logo/',
+					widthmin2 : '150',
 					heightmin2 : '150'
 				});
 				

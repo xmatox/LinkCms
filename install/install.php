@@ -81,7 +81,8 @@ if(isset($_POST["submit"]) && empty($erreur)){
 					(5, 'Favicon', 'icone', '0'),
 					(6, 'Mode', 'production', '1'),
 					(7, 'Mise en cache', 'cache', '0'),
-					(8, 'Google analytics', 'googleanalytics', '');";
+					(8, 'Google analytics', 'googleanalytics', ''),
+					(9, 'One Page Scroll Navigation', 'scrollnav', 0);";
 				if(!mysql_query($sqlParam)) $erreur = "Une erreur est survenu lors de initialisation des parametres.";
 
 				$sqlUsers = "INSERT INTO `".$prefix."users` (`id`, `username`, `password`, `role`, `nom`, `prenom`, `created`, `modified`) VALUES

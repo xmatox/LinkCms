@@ -221,6 +221,10 @@ p.error em {
     -webkit-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
 }
+.editadmincont{
+	padding: 5px;
+	display: none;
+}
 #loader_ajax{
 	width: 100%;
 	height: 100%;

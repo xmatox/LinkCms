@@ -8,7 +8,33 @@ class Rubriqueelement extends AppModel{
 	function view($id=null,$var=null){
 		
 		if(Configure::read('Parameter.cache')) $autocache=true; else $autocache=false;
-		$output = "<div class='el_blocks' id='r_".$id."'>";
+		if(Configure::read('Parameter.scrollnav')){
+			$allElements = $this->find('all',
+				array( 
+					'order' => array( 'Rubriqueelement.ordre' ),
+					'fields' => array( 'Rubriqueelement.id' ),
+					'autocache' => $autocache
+					
+				)
+			);
+			$output = "";
+			foreach ($allElements as $elements) {
+				$id = $elements["Rubriqueelement"]["id"];
+				$output .= $this->getContent($id,$var);
+			}
+		}else{
+			$output = $this->getContent($id,$var);
+		}
+		
+		
+		return $output;
+	}
+	function getContent($id=null,$var=null){
+		if(Configure::read('Parameter.cache')) $autocache=true; else $autocache=false;
+		if(Configure::read('Parameter.scrollnav'))
+			$output = "<div class='el_blocks section r_".$id."' id='r_".$id."'>";
+		else
+			$output = "<div class='el_blocks' id='r_".$id."'>";
 		//$this->setlink();
 		$elements = $this->find('all',
 			array( 
@@ -34,6 +60,35 @@ class Rubriqueelement extends AppModel{
 					$pages = ClassRegistry::init($table)->view($r['Rubriqueelement']['contenupage_id'],"re_".$r['Rubriqueelement']['id'],"re_");
 				}
 				$output .= $pages;
+				$themodel = $table;
+			}
+		}
+		$output .= "<div class='clear'></div></div>";
+		return $output;
+	}
+	function edit($id=null,$var=null){
+		
+		if(Configure::read('Parameter.cache')) $autocache=true; else $autocache=false;
+		$output = "<div class='edit_blocks' id='ed_".$id."'>";
+		//$this->setlink();
+		$elements = $this->find('all',
+			array( 
+				'conditions' => array( 'Rubriqueelement.rubrique_id' => $id ),
+				'order' => array( 'Rubriqueelement.ordre' ),
+				'autocache' => $autocache
+				
+			)
+		);
+		//debug($elements);
+		$themodel = "";
+		foreach($elements as $r){
+			if(!empty($r['Contenutype']['table'])){
+				$plug = $r['Contenutype']['table'];
+				$table = substr($plug, 0, -1);
+				$pages = ClassRegistry::init($table)->getName($r['Rubriqueelement']['contenupage_id']);
+				$output .= "<div class='edit_block' id='ed_bl_".$r['Rubriqueelement']['id']."'>";
+				$output .= " > ".$pages." (".$r['Contenutype']['nom'].")";
+				$output .= "</div>";
 				$themodel = $table;
 			}
 		}

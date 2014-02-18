@@ -9,14 +9,16 @@ class Menugroupe extends AppModel{
 			'recursive' => 2
 		));
 		$this->Menu->Rubrique->locale = Configure::read('Config.language');
-		$output = "<ul class='el_block drop' id='".$prefix.$idelement."'>";
+		$output = "<ul class='el_block drop subMenu' id='".$prefix.$idelement."'>";
 		
 		foreach ($pages as $e){
 			$this->Menu->Rubrique->bindTranslation(array('nom','url'));
 			$rub = $this->Menu->Rubrique->find('first',array(
 				'conditions' => array( 'Rubrique.id' => $e["Rubrique"]["id"] )
 			));
-			if($rub["Rubrique"]["contenutype_id"]==1){
+			if(Configure::read('Parameter.scrollnav')){
+				$href = '<a href="#" id="r_'.$rub["Rubrique"]["id"].'" class="subNavBtn">';
+			}else if($rub["Rubrique"]["contenutype_id"]==1){
 				//$output .= "<li class='elb_menu ".$e["Menugroupe"]["Graphelement"]["nom"]."'><a href='".Configure::read('Parameter.prefix')."/rubriques/view/".$rub["Rubrique"]["id"]."'><span>".$rub["Rubrique"]["nom"]."</span></a></li>";
 				if(!empty($rub['Rubrique']['url'])){
 					$titre_attendu = strtolower(Inflector::slug($rub['Rubrique']['url'], '-'));
@@ -58,9 +60,9 @@ class Menugroupe extends AppModel{
 					$output .= $rub["Rubrique"]["nom"];
 				}else{
 					if(Configure::read('Page.id')==$rub["Rubrique"]["id"]){
-						$output .= "<img src='".Configure::read('Parameter.prefix')."/img/general/boutons/".$rub["Rubrique"]["img_btn_actif"]."' alt='' />";
+						$output .= "<img src='".Configure::read('Parameter.prefix')."/img/general/boutons/".$rub["Rubrique"]["img_btn_actif"]."' alt='".$rub["Rubrique"]["nom"]."' />";
 					}else{
-						$output .= "<img src='".Configure::read('Parameter.prefix')."/img/general/boutons/".$rub["Rubrique"]["img_btn"]."' alt='' />";
+						$output .= "<img src='".Configure::read('Parameter.prefix')."/img/general/boutons/".$rub["Rubrique"]["img_btn"]."' alt='".$rub["Rubrique"]["nom"]."' />";
 					}
 					
 				}
@@ -73,7 +75,9 @@ class Menugroupe extends AppModel{
 							$output .= "<li class='elb_menu sub actif ".$e["Menugroupe"]["Graphelement"]["nom"]."'>";
 						else
 							$output .= "<li class='elb_menu sub ".$e["Menugroupe"]["Graphelement"]["nom"]."'>";
-						if($rub["Rubrique"]["contenutype_id"]==2)
+						if(Configure::read('Parameter.scrollnav'))
+							$href = '<a href="#" id="r_'.$e2["Rubrique"]["id"].'" class="subNavBtn">'.$e2["Rubrique"]["nom"]."</a></li>";
+						else if($rub["Rubrique"]["contenutype_id"]==2)
 							$output .= "<a href='".$e2["Rubrique"]["url"]."' target='_blank'>".$e2["Rubrique"]["nom"]."</a></li>";
 						else
 							$output .= "<a href='".Configure::read('Parameter.prefix')."/rubriques/view/".$e2["Rubrique"]["id"]."'>".$e2["Rubrique"]["nom"]."</a></li>";

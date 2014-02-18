@@ -100,6 +100,19 @@ class Diaporama extends AppModel{
 		$output .= "</div>";
 		return $output;
 	}
+	// retourne infos plugin
+	function getName($id=null){
+		if(Configure::read('Parameter.cache')) $autocache=true; else $autocache=false;
+		$this->bindTranslation(array('contenu'));
+		$this->locale = Configure::read('Config.language');
+		$pages = $this->find('first',array(
+			'conditions' => array( 'Diaporama.id' => $id ),
+			'recursive' => -1,
+			'fields' => array("nom"),
+			'autocache' => $autocache
+		));
+		return $pages["Diaporama"]["nom"];
+	}
 	// fonction ajout d'un nouvel élément par défaut
 	function savenew(){
 		$this->create();
